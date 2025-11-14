@@ -1,7 +1,7 @@
 // app/layout.jsx
 import "./globals.css";
 import { Montserrat } from "next/font/google"; // Import font
-import { Header } from "./components/Header";
+import { Header } from "./components/header/Header";
 import { Hero } from "./components/Hero";
 import { GsapInitializer } from "./components/GsapInitializer";
 import { Footer } from "./components/Footer";
@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
           <div id="smooth-content">
             {/* Lebar container diubah agar responsif di tablet dan desktop */}
             <div
-              className="mx-auto max-w-md md:max-w-4xl text-white shadow-2xl min-h-screen flex flex-col"
+              className="mx-auto max-w-md md:max-w-3xl text-white shadow-2xl min-h-screen flex flex-col"
               style={{
                 backgroundImage:
                   "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('/bg.webp')",
