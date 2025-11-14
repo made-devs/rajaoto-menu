@@ -1,4 +1,3 @@
-// app/layout.jsx
 import "./globals.css";
 import { Montserrat } from "next/font/google"; // Import font
 import { Header } from "./components/header/Header";
