@@ -1,17 +1,17 @@
 // app/components/Header.jsx
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
-import { Menu, ArrowLeft } from "lucide-react";
-import MenuPanel from "./MenuPanel";
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
+import { Menu, ArrowLeft } from 'lucide-react';
+import MenuPanel from './MenuPanel';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  const isHomePage = pathname === "/";
+  const isHomePage = pathname === '/';
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
@@ -19,7 +19,7 @@ export const Header = () => {
   return (
     <>
       <header className="z-30">
-        <div className="absolute top-0 h-1 w-full bg-red-600"></div>
+        <div className="absolute top-0 h-1 w-full bg-yellow-300"></div>
         <div className="relative container mx-auto flex items-center justify-center p-4 h-[72px]">
           {/* Tombol Back (kiri) */}
           <div className="absolute left-4 top-1/2 -translate-y-1/2">
@@ -40,8 +40,9 @@ export const Header = () => {
               alt="TJM Auto Care Logo"
               width={640}
               height={192}
-              priority={true}
-              className="h-48 w-auto"
+              priority
+              sizes="(max-width: 768px) 70vw, (max-width: 1200px) 40vw, 320px"
+              className="h-auto w-auto max-w-[320px] max-h-[192px]"
             />
           </div>
 

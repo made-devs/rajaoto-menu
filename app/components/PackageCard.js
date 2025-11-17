@@ -55,7 +55,7 @@ export const PackageCard = ({ packageData, categorySlug }) => {
               HARGA NORMAL {normalPrice}
             </p>
           )}
-          <div className="text-red-500 mt-1">
+          <div className="text-yellow-300 mt-1">
             <p className="text-xs font-semibold">
               {discountPrice.includes('START FROM') ? '' : 'HARGA DISCOUNT'}
             </p>
@@ -66,7 +66,7 @@ export const PackageCard = ({ packageData, categorySlug }) => {
         {/* Tombol diubah menjadi Link */}
         <Link
           href={`/paket/${categorySlug}/${detailSlug}`}
-          className="mt-3 inline-block w-full rounded-full border border-red-600 bg-gradient-to-br from-[#484149] via-[#333238] to-[#1F1D20] px-4 py-1.5 text-xs font-bold text-white shadow-md transition-transform hover:scale-105"
+          className="mt-3 inline-block w-full rounded-full border border-yellow-300 bg-gradient-to-br from-[#484149] via-[#333238] to-[#1F1D20] px-4 py-1.5 text-xs font-bold text-white shadow-md transition-transform hover:scale-105"
         >
           SELENGKAPNYA
         </Link>

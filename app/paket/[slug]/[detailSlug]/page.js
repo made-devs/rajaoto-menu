@@ -1,9 +1,9 @@
 // app/paket/[slug]/[detailSlug]/page.jsx
-"use client";
+'use client';
 
-import { useParams } from "next/navigation";
-import Image from "next/image";
-import { packagesData } from "../../../data/packages"; // Sesuaikan path jika perlu
+import { useParams } from 'next/navigation';
+import Image from 'next/image';
+import { packagesData } from '../../../data/packages'; // Sesuaikan path jika perlu
 
 export default function PackageDetailPage() {
   const params = useParams();
@@ -52,7 +52,7 @@ export default function PackageDetailPage() {
             HARGA NORMAL {packageDetail.normalPrice}
           </p>
         )}
-        <p className="text-2xl font-extrabold text-red-500">
+        <p className="text-2xl font-extrabold text-yellow-300">
           HARGA DISCOUNT {packageDetail.discountPrice}
         </p>
       </div>

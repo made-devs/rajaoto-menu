@@ -1,9 +1,10 @@
 // app/components/ServiceCard.jsx
-"use client";
+'use client';
 
-import { useState } from "react";
-import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link'; // <-- tambahkan import Link
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const ServiceCard = ({ title, slug, packages = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,7 +22,7 @@ export const ServiceCard = ({ title, slug, packages = [] }) => {
   };
 
   return (
-    <div className="space-y-3 h-[430px] flex flex-col justify-between">
+    <div className="space-y-3 h-[290px] md:h-[430px] flex flex-col justify-between">
       {/* Title dengan background image seperti Hero, tapi text di kiri */}
       <div className="relative w-full h-auto">
         <Image
@@ -33,10 +34,10 @@ export const ServiceCard = ({ title, slug, packages = [] }) => {
         />
 
         <h4
-          className="absolute top-1/2 left-0 transform -translate-y-1/2 ml-3 text-white text-xl md:text-[28px] font-extrabold z-10 px-4 md:px-6 whitespace-nowrap text-left"
+          className="absolute top-1/2 left-0 transform -translate-y-1/2 ml-3 text-white text-sm md:text-[28px] font-extrabold z-10 px-2 md:px-6 whitespace-nowrap text-left"
           style={{
             textShadow:
-              "-1px 0 0 #000, 0px 5px 4px #000, 0px -1px 0px #000, 1px 0px 0px #000",
+              '-1px 0 0 #000, 0px 5px 4px #000, 0px -1px 0px #000, 1px 0px 0px #000',
           }}
         >
           {title}
@@ -69,17 +70,32 @@ export const ServiceCard = ({ title, slug, packages = [] }) => {
                 {/* Container untuk nama package, price dan button - fixed height */}
                 <div className="flex flex-col items-center h-[5.5rem] mt-2">
                   {/* Nama package di bawah gambar - tinggi konsisten */}
-                  <div className="flex items-center justify-center px-3 font-bold text-white text-center text-sm md:text-sm min-h-[2.2rem]">
+                  <div className="flex items-center justify-center md:px-5 font-bold text-white text-center text-[11px] md:text-sm max-h-[2.2rem]">
                     {pkg.name}
                   </div>
                   {/* Price */}
-                  <div className="text-yellow-400 font-bold text-sm">
+                  <div className="text-yellow-400 mt-2 font-bold text-sm">
                     {pkg.price}
                   </div>
-                  {/* Button ADD CART - kapsul dengan border yellow dan gradasi */}
-                  <button className="bg-gradient-to-r from-gray-600 to-black text-white font-bold mt-2 py-1 px-6 rounded-full border-2 border-yellow-400 shadow transition hover:from-gray-700 hover:to-gray-900">
-                    ADD CART
-                  </button>
+                  {/* Button DETAIL - kapsul dengan border yellow dan gradasi */}
+                  {pkg.slug ? (
+                    <Link
+                      href={pkg.slug}
+                      className="bg-gradient-to-r from-gray-600 to-black text-white text-sm font-bold mt-2 py-1 px-3 md:px-6 rounded-full border-2 border-yellow-400 shadow inline-block text-center transition hover:from-gray-700 hover:to-gray-900"
+                      aria-label={`Detail ${pkg.name}`}
+                    >
+                      DETAIL
+                    </Link>
+                  ) : (
+                    <button
+                      disabled
+                      className="bg-gray-600 text-white text-sm font-bold mt-2 py-1 px-3 md:px-6 rounded-full border-2 border-yellow-400/40 opacity-40 cursor-not-allowed"
+                      aria-disabled="true"
+                      aria-label={`Detail tidak tersedia ${pkg.name}`}
+                    >
+                      DETAIL
+                    </button>
+                  )}
                 </div>
               </div>
             ))}

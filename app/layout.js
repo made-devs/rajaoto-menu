@@ -1,20 +1,23 @@
-import "./globals.css";
-import { Montserrat } from "next/font/google"; // Import font
-import { Header } from "./components/header/Header";
-import { Hero } from "./components/Hero";
-import { GsapInitializer } from "./components/GsapInitializer";
-import { Footer } from "./components/Footer";
+import './globals.css';
+import { Montserrat } from 'next/font/google'; // Import font
+import { Header } from './components/header/Header';
+import { Hero } from './components/Hero';
+import { GsapInitializer } from './components/GsapInitializer';
+import { Footer } from './components/Footer';
 
 // Konfigurasi font
 const montserrat = Montserrat({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-montserrat", // Buat variabel CSS jika diperlukan
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-montserrat', // Buat variabel CSS jika diperlukan
 });
 
 export const metadata = {
-  title: "TJM Auto Care",
-  description: "Solusi terbaik untuk semua keresahan mobil Anda",
+  title: 'Raja Oto - Bengkel Servis Mobil Terbaik',
+  description: 'Solusi terbaik untuk semua keresahan mobil Anda',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -33,9 +36,9 @@ export default function RootLayout({ children }) {
               style={{
                 backgroundImage:
                   "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('/bg.webp')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
               }}
             >
               <Header />
