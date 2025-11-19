@@ -1,18 +1,19 @@
-// app/compro/page.jsx
-import { AboutUs } from '../components/AboutUs';
-import { CompanyProfile } from '../components/CompanyProfile';
-import { ScopeOfWork } from '../components/ScopeOfWork';
-import { TjmGroup } from '../components/TjmGroup';
-import { VisionMission } from '../components/VisionMission';
+import AboutHero from './components/AboutHero';
+import ZackLeeSection from './components/ZackLeeSection';
+import WhyUs from './components/WhyUs';
+import InvestmentProgram from './components/InvestmentProgram';
+import PromoSection from './components/PromoSection';
+import Commitment from './components/Commitment';
 
 export default function CompanyProfilePage() {
   return (
-    <>
-      <CompanyProfile />
-      <AboutUs />
-      <ScopeOfWork />
-      <TjmGroup />
-      <VisionMission />
-    </>
+    <main className="flex flex-col w-full min-h-screen  text-gray-800">
+      <AboutHero />
+      <ZackLeeSection />
+      <WhyUs />
+      <InvestmentProgram />
+      <PromoSection />
+      <Commitment />
+    </main>
   );
 }
