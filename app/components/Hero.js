@@ -1,11 +1,11 @@
 // app/components/Hero.jsx
 
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useCallback, useRef, useState, useEffect } from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
+import Image from "next/image";
+import { useCallback, useRef, useState, useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 export const Hero = () => {
   const autoplay = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }));
@@ -18,26 +18,26 @@ export const Hero = () => {
     {
       id: 1,
       image:
-        'https://placehold.co/1512x648/FFFF00/000000/png?text=Promo+1&font=Montserrat',
-      title: 'Promo 1',
+        "https://placehold.co/1512x648/FFF10A/000000/png?text=Promo+1&font=Montserrat",
+      title: "Promo 1",
     },
     {
       id: 2,
       image:
-        'https://placehold.co/1512x648/FFFF00/000000/png?text=Promo+2&font=Montserrat',
-      title: 'Promo 2',
+        "https://placehold.co/1512x648/FFFF00/000000/png?text=Promo+2&font=Montserrat",
+      title: "Promo 2",
     },
     {
       id: 3,
       image:
-        'https://placehold.co/1512x648/FFFF00/000000/png?text=Promo+3&font=Montserrat',
-      title: 'Promo 3',
+        "https://placehold.co/1512x648/FFFF00/000000/png?text=Promo+3&font=Montserrat",
+      title: "Promo 3",
     },
     {
       id: 4,
       image:
-        'https://placehold.co/1512x648/FFFF00/000000/png?text=Promo+4&font=Montserrat',
-      title: 'Promo 4',
+        "https://placehold.co/1512x648/FFFF00/000000/png?text=Promo+4&font=Montserrat",
+      title: "Promo 4",
     },
   ];
 
@@ -49,9 +49,9 @@ export const Hero = () => {
   useEffect(() => {
     if (!emblaApi) return;
     const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
-    emblaApi.on('select', onSelect);
+    emblaApi.on("select", onSelect);
     onSelect();
-    return () => emblaApi.off('select', onSelect);
+    return () => emblaApi.off("select", onSelect);
   }, [emblaApi]);
 
   // Klik indikator
@@ -111,7 +111,7 @@ export const Hero = () => {
               key={idx}
               onClick={() => scrollTo(idx)}
               className={`h-2 w-2 md:h-3 md:w-3 rounded-full transition ${
-                idx === selectedIndex ? 'bg-white' : 'bg-white/50'
+                idx === selectedIndex ? "bg-white" : "bg-white/50"
               }`}
               aria-label={`Go to slide ${idx + 1}`}
             />

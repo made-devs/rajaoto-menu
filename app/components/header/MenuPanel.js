@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import { X } from 'lucide-react';
-import MenuItem from './MenuItem';
-import { menuData } from './menuData';
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { X } from "lucide-react";
+import MenuItem from "./MenuItem";
+import { menuData } from "./menuData";
 
 const MenuPanel = ({ isOpen, closeMenu }) => {
   const [isMounted, setIsMounted] = useState(false);
@@ -18,7 +18,7 @@ const MenuPanel = ({ isOpen, closeMenu }) => {
       {/* Overlay */}
       <div
         className={`fixed inset-0 bg-black/60 z-40 transition-opacity duration-300 ${
-          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={closeMenu}
       ></div>
@@ -26,12 +26,12 @@ const MenuPanel = ({ isOpen, closeMenu }) => {
       {/* Menu Panel */}
       <div
         className={`fixed top-0 right-0 h-fit max-h-screen w-[75%] max-w-sm shadow-2xl z-50 transition-transform duration-300 ease-in-out flex flex-col ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
+          isOpen ? "translate-x-0" : "translate-x-full"
         } rounded-l-2xl rounded-br-2xl`}
         style={{
           backgroundImage: "url('/bg-menu.webp')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         {/* Header */}

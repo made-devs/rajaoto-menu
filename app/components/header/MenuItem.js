@@ -48,10 +48,10 @@ const MenuItem = ({ item, closeMenu }) => {
   }, [isOpen, containerDuration, hasSubMenu]);
 
   const commonClasses =
-    "flex w-full items-center justify-between rounded-full bg-gradient-to-br from-yellow-300 to-yellow-600 p-3 text-left text-sm font-bold text-black shadow-md transition-transform hover:scale-105";
+    "flex w-full items-center justify-between rounded-full bg-gradient-to-br from-[#FFF10A] to-yellow-400 p-3 text-left text-sm font-bold text-black shadow-md transition-transform hover:scale-105";
 
   const subMenuItemClasses =
-    "block w-full text-left px-4 py-2.5 bg-black border border-yellow-500/30 rounded-lg text-yellow-400 font-semibold text-sm transition-all duration-300 hover:border-yellow-500 hover:text-white hover:shadow-[0_0_15px_rgba(234,179,8,0.6)] opacity-0";
+    "block w-full text-left px-4 py-2.5 bg-black border border-yellow-500/30 rounded-lg text-[#FFF10A] font-semibold text-sm transition-all duration-300 hover:border-yellow-500 hover:text-white hover:shadow-[0_0_15px_rgba(234,179,8,0.6)] opacity-0";
 
   if (hasSubMenu) {
     return (

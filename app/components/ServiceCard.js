@@ -1,10 +1,10 @@
 // app/components/ServiceCard.jsx
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link'; // <-- tambahkan import Link
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link"; // <-- tambahkan import Link
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export const ServiceCard = ({ title, slug, packages = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -37,7 +37,7 @@ export const ServiceCard = ({ title, slug, packages = [] }) => {
           className="absolute top-1/2 left-0 transform -translate-y-1/2 ml-3 text-white text-sm md:text-[28px] font-extrabold z-10 px-2 md:px-6 whitespace-nowrap text-left"
           style={{
             textShadow:
-              '-1px 0 0 #000, 0px 5px 4px #000, 0px -1px 0px #000, 1px 0px 0px #000',
+              "-1px 0 0 #000, 0px 5px 4px #000, 0px -1px 0px #000, 1px 0px 0px #000",
           }}
         >
           {title}
@@ -81,10 +81,10 @@ export const ServiceCard = ({ title, slug, packages = [] }) => {
                   {pkg.slug ? (
                     <Link
                       href={pkg.slug}
-                      className="bg-gradient-to-r from-gray-600 to-black text-white text-sm font-bold mt-2 py-1 px-3 md:px-6 rounded-full border-2 border-yellow-400 shadow inline-block text-center transition hover:from-gray-700 hover:to-gray-900"
+                      className="bg-gradient-to-r from-gray-600 to-black text-white text-xs md:text-sm font-bold mt-2 py-1 px-3 md:px-6 rounded-full border-2 border-yellow-400 shadow inline-block text-center transition hover:from-gray-700 hover:to-gray-900"
                       aria-label={`Detail ${pkg.name}`}
                     >
-                      DETAIL
+                      LIHAT PAKET
                     </Link>
                   ) : (
                     <button
