@@ -19,7 +19,7 @@ export default function ZackLeeSection() {
           <div className="w-full md:w-1/3">
             <div className="aspect-[3/4] bg-gradient-to-br from-yellow-500/20 to-gray-800 rounded-xl overflow-hidden shadow-2xl relative group">
               <Image
-                src="/images/zack-lee.jpg"
+                src="/about1.webp"
                 alt="Zack Lee - Komisaris & Co-Owner Raja Oto"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
