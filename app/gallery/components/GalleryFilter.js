@@ -1,37 +1,27 @@
 'use client';
-import { useState } from 'react';
 
-export default function GalleryFilter() {
-  const [activeFilter, setActiveFilter] = useState('all');
+import { galleryCategories } from '@/app/data/gallery';
 
-  const filters = [
-    { id: 'all', label: 'Semua' },
-    { id: 'facilities', label: 'Fasilitas' },
-    { id: 'services', label: 'Layanan' },
-    { id: 'machines', label: 'Mesin & Alat' },
-    { id: 'before-after', label: 'Before & After' },
-    { id: 'team', label: 'Tim Profesional' },
-  ];
-
+export default function GalleryFilter({ activeCategory, onCategoryChange }) {
   return (
-    <section className="py-8 px-6">
+    <div className="w-full py-6 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-wrap justify-center gap-3">
-          {filters.map((filter) => (
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+          {galleryCategories.map((category) => (
             <button
-              key={filter.id}
-              onClick={() => setActiveFilter(filter.id)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                activeFilter === filter.id
-                  ? 'bg-[#fff10a] text-black shadow-lg shadow-yellow-500/50'
-                  : 'bg-white/5 backdrop-blur-sm text-white border border-white/10 hover:bg-white/10'
+              key={category.id}
+              onClick={() => onCategoryChange(category.slug)}
+              className={`px-4 py-2 md:px-6 md:py-2.5 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
+                activeCategory === category.slug
+                  ? 'bg-[#fff10a] text-black shadow-lg shadow-[#fff10a]/30'
+                  : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
               }`}
             >
-              {filter.label}
+              {category.name}
             </button>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

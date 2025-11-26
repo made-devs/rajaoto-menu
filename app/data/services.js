@@ -6,19 +6,19 @@ export const serviceCategories = [
     packages: [
       {
         name: 'REBUILD KAKI-KAKI REGULER',
-        image: '/service/rebuild-kaki-kaki1.webp',
+        image: '/service/rebuild1.webp',
         slug: '/paket/rebuild-kaki-kaki/rebuild-kaki-kaki-reguler',
         price: 'Rp 1.250.000',
       },
       {
         name: 'REBUILD KAKI-KAKI SUPER',
-        image: '/service/rebuild-kaki-kaki2.webp',
+        image: '/service/rebuild2.webp',
         slug: '/paket/rebuild-kaki-kaki/rebuild-kaki-kaki-super',
         price: 'Rp 1.999.000',
       },
       {
         name: 'REBUILD KAKI-KAKI ULTRA',
-        image: '/service/rebuild-kaki-kaki3.webp',
+        image: '/service/rebuild3.webp',
         slug: '/paket/rebuild-kaki-kaki/rebuild-kaki-kaki-ultra',
         price: 'Rp 2.500.000',
       },
@@ -29,21 +29,21 @@ export const serviceCategories = [
     packages: [
       {
         name: 'GANTI OLI + KAKI-KAKI REGULER',
-        image: '/service/combo-oli-kaki-kaki1.webp',
-        price: 'Rp 1.600.000',
+        image: '/service/oli1.webp',
+        price: 'Rp 1.750.000',
         slug: '/paket/kaki-kaki-oli/ganti-oli-kaki-kaki-reguler',
       },
       {
         name: 'GANTI OLI + KAKI-KAKI SUPER',
-        image: '/service/combo-oli-kaki-kaki2.webp',
+        image: '/service/oli2.webp',
         slug: '/paket/kaki-kaki-oli/ganti-oli-kaki-kaki-super',
         price: 'Rp 2.200.000',
       },
       {
         name: 'GANTI OLI + KAKI-KAKI ULTRA',
-        image: '/service/combo-oli-kaki-kaki3.webp',
+        image: '/service/oli3.webp',
         slug: '/paket/kaki-kaki-oli/ganti-oli-kaki-kaki-ultra',
-        price: 'Rp 2.999.000',
+        price: 'Rp 2.500.000',
       },
     ],
   },
@@ -52,19 +52,19 @@ export const serviceCategories = [
     packages: [
       {
         name: 'SPAREPART + KAKI-KAKI REGULER',
-        image: '/service/sparepart-kaki-kaki1.webp',
+        image: '/service/sparepart1.webp',
         slug: '/paket/sparepart-kaki-kaki/ganti-sparepart-kaki-kaki-reguler',
         price: 'Rp 5.250.000',
       },
       {
         name: 'SPAREPART + KAKI-KAKI SUPER',
-        image: '/service/sparepart-kaki-kaki2.webp',
+        image: '/service/sparepart2.webp',
         slug: '/paket/sparepart-kaki-kaki/ganti-sparepart-kaki-kaki-super',
         price: 'Rp 7.250.000',
       },
       {
         name: 'SPAREPART + KAKI-KAKI ULTRA',
-        image: '/service/sparepart-kaki-kaki3.webp',
+        image: '/service/sparepart3.webp',
         slug: '/paket/sparepart-kaki-kaki/ganti-sparepart-kaki-kaki-ultra',
         price: 'Rp 10.099.000',
       },
@@ -77,7 +77,7 @@ export const serviceCategories = [
         name: 'AC REGULER',
         image: '/service/ac1.webp',
         slug: '/paket/ac/ac-reguler',
-        price: 'Rp 450.000',
+        price: 'Rp 499.000',
       },
       {
         name: 'AC SUPER',
@@ -89,7 +89,7 @@ export const serviceCategories = [
         name: 'AC ULTRA',
         image: '/service/ac3.webp',
         slug: '/paket/ac/ac-ultra',
-        price: 'Rp 1.250.000',
+        price: 'Rp 1.350.000',
       },
     ],
   },

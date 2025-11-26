@@ -1,15 +1,22 @@
+'use client';
+
+import Image from 'next/image';
+
 export default function GalleryHero() {
   return (
-    <section className="py-16 px-6 text-white text-center">
-      <div className="max-w-4xl mx-auto bg-black/40 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/10">
-        <h1 className="text-3xl md:text-5xl font-bold mb-6 text-[#fff10a]">
-          GALERI RAJA OTO
-        </h1>
-        <p className="text-lg md:text-xl leading-relaxed text-white">
-          Lihat koleksi foto layanan premium, fasilitas modern, dan hasil kerja
-          profesional kami. Dari perawatan mesin hingga detailing eksklusif.
-        </p>
-      </div>
-    </section>
+    <div className="relative w-full">
+      <Image
+        src="/bg-text-hero.webp"
+        alt="Gallery Background"
+        width={1920}
+        height={400}
+        className="w-full h-auto mt-[7rem] md:mt-[10rem]"
+        priority={true}
+      />
+
+      <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-black text-lg md:text-[32px] font-extrabold z-10 px-4 md:px-6 whitespace-nowrap">
+        GALERI RAJA OTO
+      </h1>
+    </div>
   );
 }
