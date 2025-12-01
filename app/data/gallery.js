@@ -4,9 +4,11 @@ export const galleryCategories = [
   { id: 'kakikaki', name: 'Kaki - Kaki', slug: 'kakikaki' },
   { id: 'detailing', name: 'Detailing', slug: 'detailing' },
   { id: 'ac', name: 'AC', slug: 'ac' },
+  { id: 'diesel', name: 'Diesel', slug: 'diesel' },
   { id: 'tuneup', name: 'Tune Up', slug: 'tuneup' },
   { id: 'steering', name: 'Steering', slug: 'steering' },
   { id: 'event', name: 'Event', slug: 'event' },
+  { id: 'fuel', name: 'Fuel System', slug: 'fuel' }, // kategori baru
 ];
 
 export const galleryImages = [
@@ -172,6 +174,248 @@ export const galleryImages = [
     categoryName: 'Event',
     location: 'Surabaya', // Sesuaikan dengan lokasi sebenarnya
     date: '2025-11-25',
+  },
+  {
+    id: 16,
+    title: 'Service AC Mobil dengan Mesin 3R',
+    description:
+      'Teknisi Raja Oto melakukan service AC mobil menggunakan mesin 3R untuk menjaga performa pendinginan kendaraan.',
+    image: '/gallery/ac3.webp', // Path gambar sesuai file yang diupload
+    category: 'ac',
+    categoryName: 'AC',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 17,
+    title: 'Proses Service AC Mobil',
+    description:
+      'Teknisi Raja Oto sedang melakukan service AC menggunakan mesin khusus untuk perawatan AC.',
+    image: '/gallery/ac4.webp',
+    category: 'ac',
+    categoryName: 'AC',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 18,
+    title: 'Ruang Detailing Hexagon - Toyota Alphard',
+    description:
+      'Mobil Toyota Alphard sedang proses detailing di ruang hexagon dengan pencahayaan khusus untuk pengecekan hasil detailing.',
+    image: '/gallery/detailing3.webp',
+    category: 'detailing',
+    categoryName: 'Detailing',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 19,
+    title: 'Detailing Toyota Alphard di Ruang Hexagon',
+    description:
+      'Proses detailing Toyota Alphard di ruang hexagon dengan pencahayaan khusus untuk hasil maksimal.',
+    image: '/gallery/detailing4.webp',
+    category: 'detailing',
+    categoryName: 'Detailing',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 20,
+    title: 'Alat Diagnostic Emisi HG-520',
+    description:
+      'Penggunaan alat diagnostic HG-520 untuk pengecekan emisi dan performa mesin kendaraan di workshop Raja Oto.',
+    image: '/gallery/diagnostic.webp',
+    category: 'workshop',
+    categoryName: 'Workshop',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 21,
+    title: 'Ruang Mesin Mobil Diesel',
+    description:
+      'Dokumentasi ruang mesin mobil diesel saat proses perawatan dan pengecekan di bengkel Raja Oto.',
+    image: '/gallery/diesel1.webp',
+    category: 'diesel',
+    categoryName: 'Diesel',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 22,
+    title: 'Proses Overhaul Mesin Diesel',
+    description:
+      'Dokumentasi proses overhaul mesin diesel di workshop Raja Oto dengan peralatan lengkap dan area kerja yang rapi.',
+    image: '/gallery/diesel4.webp',
+    category: 'diesel',
+    categoryName: 'Diesel',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 23,
+    title: 'Mobil Diesel Siap Perawatan',
+    description:
+      'Mobil diesel siap untuk proses perawatan dan pengecekan di bengkel Raja Oto.',
+    image: '/gallery/diesel3.webp',
+    category: 'diesel',
+    categoryName: 'Diesel',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 24,
+    title: 'Pengecekan Mesin Diesel Toyota',
+    description:
+      'Teknisi melakukan pengecekan mesin diesel Toyota di workshop Raja Oto untuk memastikan performa optimal.',
+    image: '/gallery/diesel2.webp',
+    category: 'diesel',
+    categoryName: 'Diesel',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 25,
+    title: 'Perbaikan Fuel System Mobil',
+    description:
+      'Teknisi Raja Oto melakukan perbaikan dan pengecekan fuel system pada mobil di workshop.',
+    image: '/gallery/fuel1.webp',
+    category: 'fuel',
+    categoryName: 'Fuel System',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 26,
+    title: 'Pengecekan Fuel System',
+    description:
+      'Proses pengecekan fuel system mobil oleh teknisi di ruang servis Raja Oto.',
+    image: '/gallery/fuel2.webp',
+    category: 'fuel',
+    categoryName: 'Fuel System',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 27,
+    title: 'Service Fuel System di Workshop',
+    description:
+      'Dokumentasi service fuel system mobil di workshop Raja Oto dengan peralatan lengkap.',
+    image: '/gallery/fuel3.webp',
+    category: 'fuel',
+    categoryName: 'Fuel System',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 28,
+    title: 'Teknisi Melakukan Pengecekan Cairan Mesin',
+    description:
+      'Teknisi Raja Oto melakukan pengecekan dan pengisian cairan pada ruang mesin mobil di area detailing hexagon.',
+    image: '/gallery/gallery10.webp',
+    category: 'detailing',
+    categoryName: 'Detailing',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 29,
+    title: 'Pengecekan Kaki-Kaki Mobil di Shaking Machine',
+    description:
+      'Teknisi melakukan pengecekan kaki-kaki mobil menggunakan shaking machine merah di workshop Raja Oto.',
+    image: '/gallery/gallery9.webp',
+    category: 'kakikaki',
+    categoryName: 'Kaki - Kaki',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 30,
+    title: 'Perawatan Velg dan Ban Mobil',
+    description:
+      'Teknisi Raja Oto melakukan perawatan pada velg dan ban mobil di area detailing.',
+    image: '/gallery/gallery8.webp',
+    category: 'detailing',
+    categoryName: 'Detailing',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 31,
+    title: 'Area Workshop dan Proses Servis',
+    description:
+      'Dokumentasi area workshop Raja Oto saat proses servis dan perawatan beberapa mobil sekaligus.',
+    image: '/gallery/gallery7.webp',
+    category: 'workshop',
+    categoryName: 'Workshop',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 32,
+    title: 'Mobil Siap Servis di Area Workshop',
+    description:
+      'Mobil-mobil siap untuk proses servis dan perawatan di area workshop Raja Oto.',
+    image: '/gallery/gallery6.webp',
+    category: 'workshop',
+    categoryName: 'Workshop',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 33,
+    title: 'Teknisi Melakukan Perbaikan Mesin',
+    description:
+      'Teknisi Raja Oto melakukan perbaikan mesin mobil di area workshop.',
+    image: '/gallery/gallery5.webp',
+    category: 'workshop',
+    categoryName: 'Workshop',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 34,
+    title: 'Detailing Toyota Alphard di Ruang Hexagon',
+    description:
+      'Toyota Alphard sedang proses detailing di ruang hexagon dengan pencahayaan khusus.',
+    image: '/gallery/gallery4.webp',
+    category: 'detailing',
+    categoryName: 'Detailing',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 35,
+    title: 'Service AC Mobil dengan AC Cleaner',
+    description:
+      'Teknisi Raja Oto melakukan service AC mobil menggunakan AC Cleaner di area workshop.',
+    image: '/gallery/gallery3.webp',
+    category: 'ac',
+    categoryName: 'AC',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 36,
+    title: 'Shaking Machine Area - Toyota Alphard',
+    description:
+      'Toyota Alphard sedang dinaikkan di shaking machine area untuk pengecekan kaki-kaki.',
+    image: '/gallery/gallery2.webp',
+    category: 'kakikaki',
+    categoryName: 'Kaki - Kaki',
+    location: 'Surabaya',
+    date: '2025-12-01',
+  },
+  {
+    id: 37,
+    title: 'Papan Nama Bengkel Raja Oto',
+    description:
+      'Papan nama bengkel Raja Oto dengan promo dan fasilitas yang tersedia.',
+    image: '/gallery/gallery1.webp',
+    category: 'workshop',
+    categoryName: 'Workshop',
+    location: 'Surabaya',
+    date: '2025-12-01',
   },
 ];
 
