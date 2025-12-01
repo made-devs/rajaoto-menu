@@ -137,7 +137,7 @@ export const Hero = () => {
         >
           {/* Title */}
           <h2 className="text-center text-white text-xl md:text-2xl font-bold mb-6">
-            <span className="text-[#fff10a]">5</span> Promo Autentik
+            <span className="text-[#fff10a]">5</span> Promo Special
           </h2>
 
           {/* Navigation Buttons */}
@@ -245,7 +245,8 @@ export const Hero = () => {
         >
           {/* Title */}
           <h2 className="text-center text-white text-lg md:text-xl font-bold mb-4">
-            <span className="text-[#fff10a]">25</span> Promo Gratis
+            <span className="text-[#fff10a]">25</span> Promo Gratis Senilai 8
+            Juta Rupiah!
           </h2>
 
           {/* Navigation Buttons */}

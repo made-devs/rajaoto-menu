@@ -1,8 +1,12 @@
-// app/data/packages.js
-
 export const packagesData = {
   'rebuild-kaki-kaki': {
     pageTitle: 'PAKET REBUILD KAKI-KAKI',
+    gallery: [
+      '/gallery/kakikaki1.webp',
+      '/gallery/kakikaki2.webp',
+      '/gallery/kakikaki3.webp',
+      '/gallery/kakikaki4.webp',
+    ],
     packages: [
       {
         title: 'PAKET REBUILD KAKI-KAKI PREMIUM',
@@ -56,6 +60,12 @@ export const packagesData = {
   },
   ac: {
     pageTitle: 'PAKET AC',
+    gallery: [
+      '/gallery/ac1.webp',
+      '/gallery/ac2.webp',
+      '/gallery/ac3.webp',
+      '/gallery/ac4.webp',
+    ],
     packages: [
       {
         title: 'PAKET AC PREMIUM',
@@ -97,6 +107,12 @@ export const packagesData = {
   },
   detailing: {
     pageTitle: 'PAKET DETAILING',
+    gallery: [
+      '/gallery/detailing1.webp',
+      '/gallery/detailing2.webp',
+      '/gallery/detailing3.webp',
+      '/gallery/detailing4.webp',
+    ],
     packages: [
       {
         title: 'PAKET DETAILING PREMIUM',
@@ -138,6 +154,13 @@ export const packagesData = {
   },
   'detailing-velg': {
     pageTitle: 'PAKET DETAILING VELG',
+    gallery: [
+      'https://placehold.co/600x400/webp?text=Dokumentasi+1',
+      'https://placehold.co/600x400/webp?text=Dokumentasi+2',
+      'https://placehold.co/600x400/webp?text=Dokumentasi+3',
+      'https://placehold.co/600x400/webp?text=Dokumentasi+4',
+      'https://placehold.co/600x400/webp?text=Dokumentasi+5',
+    ],
     packages: [
       {
         title: 'PAKET DETAILING VELG PREMIUM',
@@ -179,6 +202,12 @@ export const packagesData = {
   },
   diesel: {
     pageTitle: 'PAKET DIESEL SERVICE',
+    gallery: [
+      '/gallery/diesel1.webp',
+      '/gallery/diesel2.webp',
+      '/gallery/diesel3.webp',
+      '/gallery/diesel4.webp',
+    ],
     packages: [
       {
         title: 'PAKET DIESEL SERVICE SUPER',
@@ -220,6 +249,11 @@ export const packagesData = {
   },
   'fuel-system': {
     pageTitle: 'PAKET FUEL SYSTEM',
+    gallery: [
+      '/gallery/fuel1.webp',
+      '/gallery/fuel2.webp',
+      '/gallery/fuel3.webp',
+    ],
     packages: [
       {
         title: 'PAKET FUEL SYSTEM SUPER',
@@ -259,49 +293,15 @@ export const packagesData = {
       },
     ],
   },
-  'sparepart-kaki-kaki': {
-    pageTitle: 'PAKET GANTI SPAREPART + KAKI-KAKI',
-    packages: [
-      {
-        title: 'PAKET GANTI SPAREPART + KAKI-KAKI REGULER',
-        detailSlug: 'ganti-sparepart-kaki-kaki-reguler',
-        image: '/service/sparepart1.webp',
-        description: [
-          'Paket Ganti Sparepart + Kaki-Kaki Reguler memberikan 10 titik pergantian part pendukung di area kaki-kaki mobil, 150 titik inspeksi AC, kelistrikan, dan kaki-kaki, carbon cleaner combustion chamber, engine tune up five in one machine, injector needle valve with machine, three catalytic system cleaning, intake system cleaning with machine & fuel system cleaning with machine. Termasuk free spooring 3D & balancing 4 roda, diagnosa column steer dan joint steer, servis rem 4 roda & flushing minyak rem & grease full area kaki-kaki & wheel dressing, rebuild rack steer EPS & rebuild lower arm, vaporizer steamer interior & rubberized undercoat, pengerjaan mobil cepat & tidak menginap, mobil dengan merk tertentu beda harga, free pengecekan ulang kaki-kaki dengan shaking machine, garansi 1 tahun, serta 25 promo gratis senilai 8 juta rupiah.',
-        ],
-        subtitle: 'KAKI-KAKI REGULER',
-        normalPrice: 'IDR 10.500K',
-        discountPrice: 'IDR 7.250K',
-        promo: '25 PROMO GRATIS KHUSUS! SENILAI 8 JT RUPIAH',
-      },
-      {
-        title: 'PAKET GANTI SPAREPART + KAKI-KAKI PREMIUM',
-        detailSlug: 'ganti-sparepart-kaki-kaki-premium',
-        image: '/service/sparepart2.webp',
-        description: [
-          'Paket Ganti Sparepart + Kaki-Kaki Premium memberikan 8 titik pergantian part pendukung di area kaki-kaki mobil, 150 titik inspeksi AC, kelistrikan, dan kaki-kaki, carbon cleaner combustion chamber, engine tune up five in one machine, injector needle valve with machine. Termasuk servis rem 4 roda & flushing minyak rem & grease full area kaki-kaki & wheel dressing, free spooring 3D & balancing 4 roda, vaporizer steamer interior & rubberized undercoat, pengerjaan mobil cepat & tidak menginap, mobil dengan merk tertentu beda harga, free pengecekan ulang kaki-kaki dengan shaking machine, garansi 1 tahun, serta 25 promo gratis senilai 8 juta rupiah.',
-        ],
-        subtitle: 'KAKI-KAKI PREMIUM',
-        normalPrice: 'IDR 10.500K',
-        discountPrice: 'IDR 5.250K',
-        promo: '25 PROMO GRATIS KHUSUS! SENILAI 8 JT RUPIAH',
-      },
-      {
-        title: 'PAKET GANTI SPAREPART + KAKI-KAKI ULTRA',
-        detailSlug: 'ganti-sparepart-kaki-kaki-ultra',
-        image: '/service/sparepart3.webp',
-        description: [
-          'Paket Ganti Sparepart + Kaki-Kaki Ultra memberikan 12 titik pergantian part pendukung di area kaki-kaki mobil, 150 titik inspeksi AC, kelistrikan, dan kaki-kaki, carbon cleaner combustion chamber, engine tune up five in one machine, injector needle valve with machine, three catalytic system cleaning, intake system cleaning with machine & fuel system cleaning with machine. Termasuk rebuild rack steer EPS (penggantian bushing AS & pinion gear baru), rebuild lower arm, free spooring 3D & balancing 4 roda, servis rem 4 roda & flushing minyak rem & grease full area kaki-kaki & wheel dressing, rebuild rack steer EPS & rebuild lower arm, diagnosa column steer dan joint steer, vaporizer steamer interior & rubberized undercoat, pengerjaan mobil cepat & tidak menginap, mobil dengan merk tertentu beda harga, free pengecekan ulang kaki-kaki dengan shaking machine, garansi 1 bulan jasa & sparepart, serta 25 promo gratis senilai 8 juta rupiah.',
-        ],
-        subtitle: 'KAKI-KAKI ULTRA',
-        normalPrice: 'IDR 20.200K',
-        discountPrice: 'IDR 10.099K',
-        promo: '25 PROMO GRATIS KHUSUS! SENILAI 8 JT RUPIAH',
-      },
-    ],
-  },
+
   'nano-ceramic-coating': {
     pageTitle: 'PAKET DETAILING + NANO CERAMIC COATING',
+    gallery: [
+      '/gallery/detailing1.webp',
+      '/gallery/detailing2.webp',
+      '/gallery/detailing3.webp',
+      '/gallery/detailing4.webp',
+    ],
     packages: [
       {
         title: 'PAKET DETAILING + NANO CERAMIC COATING PREMIUM',
@@ -343,6 +343,12 @@ export const packagesData = {
   },
   'kaki-kaki-oli': {
     pageTitle: 'PAKET KAKI-KAKI + BARDAHL OIL USA',
+    gallery: [
+      '/gallery/kakikaki1.webp',
+      '/gallery/kakikaki5.webp',
+      '/gallery/kakikaki3.webp',
+      '/gallery/kakikaki4.webp',
+    ],
     packages: [
       {
         title: 'PAKET KAKI-KAKI PREMIUM + BARDAHL OIL USA',
@@ -384,6 +390,12 @@ export const packagesData = {
   },
   racksteer: {
     pageTitle: 'PAKET RACKSTEER ULTRA',
+    gallery: [
+      '/gallery/racksteer1.webp',
+      '/gallery/racksteer2.webp',
+      '/gallery/racksteer3.webp',
+      '/gallery/steering1.webp',
+    ],
     packages: [
       {
         title: 'PAKET RACKSTEER ULTRA',
@@ -401,6 +413,13 @@ export const packagesData = {
   },
   shockbreaker: {
     pageTitle: 'PAKET SHOCKBREAKER',
+    gallery: [
+      'https://placehold.co/600x400/webp?text=Dokumentasi+1',
+      'https://placehold.co/600x400/webp?text=Dokumentasi+2',
+      'https://placehold.co/600x400/webp?text=Dokumentasi+3',
+      'https://placehold.co/600x400/webp?text=Dokumentasi+4',
+      'https://placehold.co/600x400/webp?text=Dokumentasi+5',
+    ],
     packages: [
       {
         title: 'PAKET SHOCKBREAKER PREMIUM',
@@ -442,6 +461,12 @@ export const packagesData = {
   },
   steering: {
     pageTitle: 'PAKET STEERING',
+    gallery: [
+      '/gallery/racksteer1.webp',
+      '/gallery/racksteer2.webp',
+      '/gallery/racksteer3.webp',
+      '/gallery/steering1.webp',
+    ],
     packages: [
       {
         title: 'PAKET STEERING SUPER',

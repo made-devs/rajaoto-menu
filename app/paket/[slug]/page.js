@@ -4,6 +4,7 @@
 import { useParams } from 'next/navigation';
 import { packagesData } from '../../data/packages';
 import { PackageCard } from '../../components/PackageCard';
+import { GalleryCarousel } from '../../components/GalleryCarousel';
 
 export default function PaketDetailPage() {
   const params = useParams();
@@ -29,7 +30,6 @@ export default function PaketDetailPage() {
                 {subCategory.subTitle}
               </h2>
               <div className="grid grid-cols-2 gap-4 px-4">
-                {/* Cek lagi di dalam sub-kategori */}
                 {subCategory.packages &&
                   Array.isArray(subCategory.packages) &&
                   subCategory.packages.map((pkg, index) => (
@@ -43,13 +43,11 @@ export default function PaketDetailPage() {
             </div>
           ))
         ) : (
-          // Jika tidak ada sub-kategori, tampilkan paket utama
           <div>
             <h2 className="text-center text-2xl font-black tracking-wider mb-4">
               {pageData.pageTitle}
             </h2>
             <div className="grid grid-cols-2 gap-4 px-4">
-              {/* Cek paket utama */}
               {pageData.packages &&
                 Array.isArray(pageData.packages) &&
                 pageData.packages.map((pkg, index) => (
@@ -62,6 +60,9 @@ export default function PaketDetailPage() {
             </div>
           </div>
         )}
+
+        {/* Gallery Carousel */}
+        <GalleryCarousel images={pageData.gallery} title={pageData.pageTitle} />
       </section>
     </>
   );
