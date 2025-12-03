@@ -1,16 +1,17 @@
-'use client';
+"use client";
 
-import { useState, useMemo } from 'react';
-import GalleryHero from './components/GalleryHero';
-import GalleryFilter from './components/GalleryFilter';
-import GalleryGrid from './components/GalleryGrid';
-import GalleryShowcase from './components/GalleryShowcase';
-import { getImagesByCategory } from '@/app/data/gallery';
+import { useState, useMemo } from "react";
+import GalleryHero from "./components/GalleryHero";
+import GalleryFilter from "./components/GalleryFilter";
+import GalleryGrid from "./components/GalleryGrid";
+import GalleryShowcase from "./components/GalleryShowcase";
+import { getImagesByCategory } from "@/app/data/gallery";
 
 export default function GalleryPage() {
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [activeCategory, setActiveCategory] = useState("all");
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showcaseImages, setShowcaseImages] = useState([]);
 
   const filteredImages = useMemo(() => {
     return getImagesByCategory(activeCategory);
@@ -18,28 +19,32 @@ export default function GalleryPage() {
 
   const handleCategoryChange = (category) => {
     setActiveCategory(category);
+    setSelectedImage(null);
+    setShowcaseImages([]);
   };
 
   const handleImageClick = (image, index) => {
     setSelectedImage(image);
     setCurrentIndex(index);
+    setShowcaseImages(filteredImages);
   };
 
   const handleCloseShowcase = () => {
     setSelectedImage(null);
+    setShowcaseImages([]);
   };
 
   const handleNavigate = (direction) => {
     let newIndex;
-    if (direction === 'prev') {
+    if (direction === "prev") {
       newIndex =
-        currentIndex === 0 ? filteredImages.length - 1 : currentIndex - 1;
+        currentIndex === 0 ? showcaseImages.length - 1 : currentIndex - 1;
     } else {
       newIndex =
-        currentIndex === filteredImages.length - 1 ? 0 : currentIndex + 1;
+        currentIndex === showcaseImages.length - 1 ? 0 : currentIndex + 1;
     }
     setCurrentIndex(newIndex);
-    setSelectedImage(filteredImages[newIndex]);
+    setSelectedImage(showcaseImages[newIndex]);
   };
 
   return (
@@ -65,10 +70,10 @@ export default function GalleryPage() {
       {/* Image Count */}
       <div className="text-center pb-8">
         <p className="text-white text-sm">
-          Menampilkan{' '}
+          Menampilkan{" "}
           <span className="text-[#fff10a] font-bold">
             {filteredImages.length}
-          </span>{' '}
+          </span>{" "}
           foto
         </p>
       </div>
@@ -76,7 +81,7 @@ export default function GalleryPage() {
       {selectedImage && (
         <GalleryShowcase
           image={selectedImage}
-          images={filteredImages}
+          images={showcaseImages}
           currentIndex={currentIndex}
           onClose={handleCloseShowcase}
           onNavigate={handleNavigate}

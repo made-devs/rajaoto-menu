@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useState } from 'react';
+import Image from "next/image";
+import { useState } from "react";
 
 export default function GalleryGrid({ images, onImageClick }) {
   return (
@@ -14,7 +14,7 @@ export default function GalleryGrid({ images, onImageClick }) {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
             {images.map((image, index) => (
               <div
                 key={image.id}
@@ -26,7 +26,7 @@ export default function GalleryGrid({ images, onImageClick }) {
                   alt={image.title}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
 
                 {/* Overlay */}
