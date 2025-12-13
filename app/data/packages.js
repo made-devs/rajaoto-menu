@@ -10,6 +10,7 @@ export const packagesData = {
     packages: [
       {
         title: 'PAKET REBUILD KAKI-KAKI PREMIUM',
+        category: 'kakikaki',
         detailSlug: 'rebuild-kaki-kaki-premium',
         image: '/service/rebuild1.webp',
         description: [
@@ -22,6 +23,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET REBUILD KAKI-KAKI + AC + OLI PREMIUM',
+        category: 'kakikaki',
         detailSlug: 'rebuild-kaki-kaki-ac-oli-premium',
         image: '/service/rebuild4.webp',
         description: [
@@ -34,6 +36,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET REBUILD KAKI-KAKI SUPER',
+        category: 'kakikaki',
         detailSlug: 'rebuild-kaki-kaki-super',
         image: '/service/rebuild2.webp',
         description: [
@@ -46,6 +49,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET ENGINE TUNE UP 5 IN 1 + KAKI-KAKI ULTRA',
+        category: 'kakikaki',
         detailSlug: 'engine-tuneup-kaki-kaki-ultra',
         image: '/service/rebuild3.webp',
         description: [
@@ -69,6 +73,7 @@ export const packagesData = {
     packages: [
       {
         title: 'PAKET AC PREMIUM',
+        category: 'ac',
         detailSlug: 'ac-premium',
         image: '/service/ac1.webp',
         description: [
@@ -81,6 +86,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET AC SUPER',
+        category: 'ac',
         detailSlug: 'ac-super',
         image: '/service/ac2.webp',
         description: [
@@ -93,6 +99,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET AC ULTRA',
+        category: 'ac',
         detailSlug: 'ac-ultra-bongkar-dashboard',
         image: '/service/ac3.webp',
         description: [
@@ -116,6 +123,7 @@ export const packagesData = {
     packages: [
       {
         title: 'PAKET DETAILING PREMIUM',
+        category: 'detailing',
         detailSlug: 'detailing-premium',
         image: '/service/detailing1.webp',
         description: [
@@ -128,6 +136,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET DETAILING SUPER',
+        category: 'detailing',
         detailSlug: 'detailing-super',
         image: '/service/detailing2.webp',
         description: [
@@ -140,6 +149,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET DETAILING ULTRA',
+        category: 'detailing',
         detailSlug: 'detailing-ultra',
         image: '/service/detailing3.webp',
         description: [
@@ -164,6 +174,7 @@ export const packagesData = {
     packages: [
       {
         title: 'PAKET DETAILING VELG PREMIUM',
+        category: 'detailing',
         detailSlug: 'detailing-velg-premium',
         image: '/service/velg1.webp',
         description: [
@@ -176,6 +187,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET DETAILING VELG SUPER',
+        category: 'detailing',
         detailSlug: 'detailing-velg-super',
         image: '/service/velg2.webp',
         description: [
@@ -188,6 +200,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET DETAILING VELG ULTRA',
+        category: 'detailing',
         detailSlug: 'detailing-velg-ultra',
         image: '/service/velg3.webp',
         description: [
@@ -211,6 +224,7 @@ export const packagesData = {
     packages: [
       {
         title: 'PAKET DIESEL SERVICE SUPER',
+        category: 'diesel',
         detailSlug: 'diesel-super',
         image: '/service/diesel2.webp',
         description: [
@@ -223,6 +237,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET DIESEL SERVICE ULTRA',
+        category: 'diesel',
         detailSlug: 'diesel-ultra',
         image: '/service/diesel3.webp',
         description: [
@@ -235,6 +250,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET DIESEL SERVICE PREMIUM',
+        category: 'diesel',
         detailSlug: 'diesel-premium',
         image: '/service/diesel1.webp',
         description: [
@@ -257,6 +273,7 @@ export const packagesData = {
     packages: [
       {
         title: 'PAKET FUEL SYSTEM SUPER',
+        category: 'fuel',
         detailSlug: 'fuel-system-super',
         image: '/service/fuel-system1.webp',
         description: [
@@ -269,6 +286,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET FUEL SYSTEM ULTRA',
+        category: 'fuel',
         detailSlug: 'fuel-system-ultra',
         image: '/service/fuel-system2.webp',
         description: [
@@ -281,6 +299,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET REBUILD KAKI-KAKI + FUEL SYSTEM SUPER',
+        category: 'fuel',
         detailSlug: 'rebuild-kaki-fuel-system-super',
         image: '/service/fuel-system3.webp',
         description: [
@@ -305,6 +324,7 @@ export const packagesData = {
     packages: [
       {
         title: 'PAKET DETAILING + NANO CERAMIC COATING PREMIUM',
+        category: 'detailing',
         detailSlug: 'nano-ceramic-coating-premium',
         image: '/service/coating1.webp',
         description: [
@@ -317,6 +337,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET DETAILING + NANO CERAMIC COATING SUPER',
+        category: 'detailing',
         detailSlug: 'nano-ceramic-coating-super',
         image: '/service/coating2.webp',
         description: [
@@ -329,6 +350,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET DETAILING + NANO CERAMIC COATING ULTRA',
+        category: 'detailing',
         detailSlug: 'nano-ceramic-coating-ultra',
         image: '/service/coating3.webp',
         description: [
@@ -352,6 +374,7 @@ export const packagesData = {
     packages: [
       {
         title: 'PAKET KAKI-KAKI PREMIUM + BARDAHL OIL USA',
+        category: 'kakikaki',
         detailSlug: 'bardahl-oil-usa-premium',
         image: '/service/oli1.webp',
         description: [
@@ -364,6 +387,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET KAKI-KAKI SUPER + BARDAHL OIL USA',
+        category: 'kakikaki',
         detailSlug: 'bardahl-oil-usa-super',
         image: '/service/oli2.webp',
         description: [
@@ -376,6 +400,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET KAKI-KAKI ULTRA + BARDAHL OIL USA',
+        category: 'kakikaki',
         detailSlug: 'bardahl-oil-usa-ultra',
         image: '/service/oli3.webp',
         description: [
@@ -399,6 +424,7 @@ export const packagesData = {
     packages: [
       {
         title: 'PAKET RACKSTEER ULTRA',
+        category: 'steering',
         detailSlug: 'racksteer-ultra',
         image: '/service/racksteer.webp',
         description: [
@@ -423,6 +449,7 @@ export const packagesData = {
     packages: [
       {
         title: 'PAKET SHOCKBREAKER PREMIUM',
+        category: 'steering',
         detailSlug: 'shockbreaker-premium',
         image: '/service/shockbreaker1.webp',
         description: [
@@ -435,6 +462,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET SHOCKBREAKER SUPER',
+        category: 'steering',
         detailSlug: 'shockbreaker-super',
         image: '/service/shockbreaker2.webp',
         description: [
@@ -447,6 +475,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET SHOCKBREAKER ULTRA',
+        category: 'steering',
         detailSlug: 'shockbreaker-ultra',
         image: '/service/shockbreaker3.webp',
         description: [
@@ -470,6 +499,7 @@ export const packagesData = {
     packages: [
       {
         title: 'PAKET STEERING SUPER',
+        category: 'steering',
         detailSlug: 'steering-super',
         image: '/service/steering1.webp',
         description: [
@@ -482,6 +512,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET STEERING ULTRA',
+        category: 'steering',
         detailSlug: 'steering-ultra',
         image: '/service/steering2.webp',
         description: [
@@ -494,6 +525,7 @@ export const packagesData = {
       },
       {
         title: 'PAKET STEERING + REBUILD KAKI KAKI SUPER',
+        category: 'steering',
         detailSlug: 'steering-rebuild-kaki-super',
         image: '/service/steering3.webp',
         description: [
