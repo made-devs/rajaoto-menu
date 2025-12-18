@@ -27,9 +27,9 @@ export default function VisiMisi() {
             Vision
           </h2>
           <p className="text-2xl md:text-5xl font-black text-white text-center leading-tight uppercase italic tracking-tighter">
-            "Menjadi jaringan bengkel modern terbesar di Indonesia yang{" "}
+            &quot;Menjadi jaringan bengkel modern terbesar di Indonesia yang{" "}
             <span className="text-yellow-500">mendemokratisasi</span> kualitas
-            servis premium."
+            servis premium.&quot;
           </p>
         </div>
 

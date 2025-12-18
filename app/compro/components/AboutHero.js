@@ -18,8 +18,8 @@ export default function AboutHero() {
             {/* Quote Section dengan Border Kuning Solid */}
             <div className="border-l-4 border-yellow-500 pl-8">
               <p className="text-xl md:text-3xl font-light leading-tight italic text-zinc-100">
-                "Raja Oto lahir dari satu visi besar: menghadirkan bengkel
-                modern yang benar-benar bisa dipercaya."
+                &quot;Raja Oto lahir dari satu visi besar: menghadirkan bengkel
+                modern yang benar-benar bisa dipercaya.&quot;
               </p>
               <p className="mt-4 text-yellow-500 font-bold uppercase tracking-widest text-sm">
                 Standar Mesin, Bukan Feeling.

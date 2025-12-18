@@ -68,7 +68,7 @@ export default function StandardService() {
           <div className="mt-12 p-8 rounded-2xl bg-black/40 border border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex gap-4 items-start">
               <span className="text-4xl text-yellow-500 font-serif leading-none">
-                "
+                &quot;
               </span>
               <p className="text-zinc-300 max-w-xl text-sm md:text-base italic font-light leading-relaxed">
                 Kami tidak menggunakan sistem perkiraan. Semua diagnosa

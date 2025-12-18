@@ -49,7 +49,7 @@ export default function ZackLeeSection() {
               {/* Quote dengan Gaya Premium */}
               <div className="relative mb-10">
                 <span className="absolute -left-6 -top-4 text-6xl text-yellow-500/20 font-serif">
-                  "
+                  &quot;
                 </span>
                 <p className="text-xl md:text-2xl font-light italic text-zinc-100 leading-relaxed pl-4">
                   Saya bosan melihat orang kecewa saat servis mobil. Harga tidak
