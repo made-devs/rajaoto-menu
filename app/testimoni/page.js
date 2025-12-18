@@ -1,25 +1,25 @@
 // app/testimoni/page.jsx
-'use client';
+"use client";
 
-import { useState, useMemo } from 'react';
-import { testimoniData } from '../data/testimoni';
-import { TestimoniCard } from '../components/TestimoniCard';
-import { TestimoniImageCarousel } from '../components/TestimoniImageCard';
-import { TestimoniVideoCarousel } from '../components/TestimoniVideoCard';
+import { useState, useMemo } from "react";
+import { testimoniData } from "../data/testimoni";
+import { TestimoniCard } from "../components/TestimoniCard";
+import { TestimoniImageCarousel } from "../components/TestimoniImageCard";
+import { TestimoniVideoCarousel } from "../components/TestimoniVideoCard";
 
 const categories = [
-  { key: 'semua', label: 'Semua' },
-  { key: 'kaki-kaki', label: 'Kaki-Kaki & Anti Karat' },
-  { key: 'ac', label: 'Servis AC' },
-  { key: 'engine', label: 'Mesin & Diesel' },
-  { key: 'detailing', label: 'Coating & Detailing' },
+  { key: "semua", label: "Semua" },
+  { key: "kaki-kaki", label: "Kaki-Kaki & Anti Karat" },
+  { key: "ac", label: "Servis AC" },
+  { key: "engine", label: "Mesin & Diesel" },
+  { key: "detailing", label: "Coating & Detailing" },
 ];
 
 export default function TestimoniPage() {
-  const [activeFilter, setActiveFilter] = useState('semua');
+  const [activeFilter, setActiveFilter] = useState("semua");
 
   const filteredReviews = useMemo(() => {
-    if (activeFilter === 'semua') {
+    if (activeFilter === "semua") {
       return testimoniData.reviews;
     }
     return testimoniData.reviews.filter(
@@ -28,7 +28,7 @@ export default function TestimoniPage() {
   }, [activeFilter]);
 
   const filteredImages = useMemo(() => {
-    if (activeFilter === 'semua') {
+    if (activeFilter === "semua") {
       return testimoniData.images;
     }
     return testimoniData.images.filter(
@@ -37,7 +37,7 @@ export default function TestimoniPage() {
   }, [activeFilter]);
 
   const filteredVideos = useMemo(() => {
-    if (activeFilter === 'semua') {
+    if (activeFilter === "semua") {
       return testimoniData.videos;
     }
     return testimoniData.videos.filter(
@@ -59,8 +59,8 @@ export default function TestimoniPage() {
             onClick={() => setActiveFilter(category.key)}
             className={`rounded-full px-4 py-2 text-sm font-bold transition-colors ${
               activeFilter === category.key
-                ? 'bg-red-600 text-white'
-                : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'
+                ? "bg-red-600 text-white"
+                : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"
             }`}
           >
             {category.label}
@@ -89,7 +89,7 @@ export default function TestimoniPage() {
       {/* Section Testimoni Gambar - Carousel */}
       <div className="mb-12">
         <h2 className="text-2xl font-black text-white mb-6 text-center">
-          📸 TESTIMONI FOTO
+          TESTIMONI FOTO
         </h2>
         {filteredImages.length > 0 ? (
           <TestimoniImageCarousel images={filteredImages} />
@@ -101,18 +101,7 @@ export default function TestimoniPage() {
       </div>
 
       {/* Section Testimoni Video - Carousel */}
-      <div>
-        <h2 className="text-2xl font-black text-white mb-6 text-center">
-          🎬 TESTIMONI VIDEO
-        </h2>
-        {filteredVideos.length > 0 ? (
-          <TestimoniVideoCarousel videos={filteredVideos} />
-        ) : (
-          <p className="text-center text-gray-400">
-            Belum ada testimoni video untuk kategori ini.
-          </p>
-        )}
-      </div>
+      <TestimoniVideoCarousel videos={filteredVideos} />
     </section>
   );
 }

@@ -1,16 +1,64 @@
 export default function AboutHero() {
   return (
-    <section className="py-16 px-6 text-white text-center">
-      <div className="max-w-4xl mx-auto bg-black/40 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/10">
-        <h1 className="text-3xl md:text-5xl font-bold mb-6 text-yellow-500">
-          TENTANG KAMI — RAJA OTO INDONESIA
-        </h1>
-        <p className="text-lg md:text-xl leading-relaxed text-white">
-          Raja Oto lahir dari satu visi besar: menghadirkan bengkel modern yang
-          benar-benar bisa dipercaya. Sebuah tempat di mana mobil dirawat dengan
-          standar mesin, bukan feeling. Di mana pelanggan merasa aman,
-          transparan, dan dilayani seperti di bengkel kelas premium.
-        </p>
+    <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+      {/* 1. STRATEGI DARK OVERLAY: Meredam background motif agar tidak terlalu nabrak */}
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* 2. STRATEGI GLASSMORPHISM: Container utama dengan blur tinggi */}
+        <div className="p-8 md:p-16 rounded-[3rem] border border-white/10 bg-zinc-950/70 backdrop-blur-2xl shadow-2xl">
+          <div className="inline-block px-4 py-1 mb-8 border border-yellow-500/30 bg-yellow-500/10 text-yellow-500 text-xs font-bold uppercase tracking-widest rounded-full">
+            The Future of Workshop
+          </div>
+
+          <h1 className="text-5xl md:text-8xl font-black mb-12 leading-[0.9] tracking-tighter uppercase text-white">
+            TENTANG <span className="text-yellow-500 italic">KAMI</span>
+          </h1>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-12">
+            {/* Quote Section dengan Border Kuning Solid */}
+            <div className="border-l-4 border-yellow-500 pl-8">
+              <p className="text-xl md:text-3xl font-light leading-tight italic text-zinc-100">
+                "Raja Oto lahir dari satu visi besar: menghadirkan bengkel
+                modern yang benar-benar bisa dipercaya."
+              </p>
+              <p className="mt-4 text-yellow-500 font-bold uppercase tracking-widest text-sm">
+                Standar Mesin, Bukan Feeling.
+              </p>
+            </div>
+
+            <div className="space-y-8">
+              <p className="text-zinc-400 text-lg leading-relaxed font-light">
+                Kami membangun ekosistem otomotif di mana pelanggan merasa aman,
+                transparan, dan dilayani seperti di bengkel kelas premium dengan
+                harga yang masuk akal.
+              </p>
+
+              {/* Stats Section (fix mobile overflow) */}
+              <div className="flex flex-col sm:flex-row sm:items-end gap-6">
+                <div className="flex flex-col min-w-0">
+                  <span className="text-3xl sm:text-4xl font-black text-white leading-none">
+                    100%
+                  </span>
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-yellow-500 font-bold">
+                    Machine Based
+                  </span>
+                </div>
+
+                {/* Divider: horizontal on mobile, vertical on >=sm */}
+                <div className="h-px w-full bg-white/10 sm:h-12 sm:w-px" />
+
+                <div className="flex flex-col min-w-0">
+                  <span className="text-3xl sm:text-4xl font-black text-white leading-none break-words">
+                    PREMIUM
+                  </span>
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-yellow-500 font-bold">
+                    Standard Service
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

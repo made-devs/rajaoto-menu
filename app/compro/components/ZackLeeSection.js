@@ -1,74 +1,82 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function ZackLeeSection() {
   return (
-    <section className="py-16 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Header Section */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#fff10a]">
-            🎥 Pesan dari Zack Lee
-          </h2>
-          <p className="text-white text-lg">
-            Komisaris & Co-Owner RAJA OTO Indonesia
-          </p>
-        </div>
+    <section className="relative py-24 px-6 overflow-hidden">
+      {/* 1. STRATEGI DARK OVERLAY: Menjinakkan background motif agar tidak distraksi */}
+      {/* <div className="absolute inset-0 bg-black/50 pointer-events-none z-0" /> */}
 
-        <div className="flex flex-col md:flex-row items-center gap-10 bg-black/30 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
-          {/* Area Foto */}
-          <div className="w-full md:w-1/3">
-            <div className="aspect-[3/4] bg-gradient-to-br from-yellow-500/20 to-gray-800 rounded-xl overflow-hidden shadow-2xl relative group">
-              <Image
-                src="/about1.webp"
-                alt="Zack Lee - Komisaris & Co-Owner Raja Oto"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-              <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/70 to-transparent p-6">
-                <p className="text-white font-bold text-xl">Zack Lee</p>
-                <p className="text-[#fff10a] text-sm font-medium">
-                  Komisaris & Co-Owner
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* 2. STRATEGI GLASSMORPHISM: Kontainer utama dengan efek blur tebal */}
+        <div className="p-8 md:p-16 rounded-[3rem] border border-white/10 bg-zinc-950/80 backdrop-blur-3xl shadow-2xl">
+          <div className="flex flex-col md:flex-row gap-12 lg:gap-20 items-center">
+            {/* Foto Area dengan Industrial Frame */}
+            <div className="w-full md:w-2/5 relative group">
+              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-2 border-white/5 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+                <Image
+                  src="/about1.webp"
+                  alt="Zack Lee"
+                  fill
+                  className="object-cover transition-all duration-700"
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                />
+                {/* Overlay Hitam Tipis di Foto */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+              </div>
+
+              {/* Badge "The Visionary" yang melayang */}
+              <div className="absolute -bottom-4 -right-4 bg-yellow-500 py-4 px-6 shadow-2xl hidden md:block -rotate-2">
+                <p className="text-black font-black text-xl uppercase leading-none italic tracking-tighter">
+                  The Visionary
                 </p>
               </div>
             </div>
-          </div>
 
-          {/* Area Konten */}
-          <div className="w-full md:w-2/3">
-            <blockquote className="relative">
-              <div className="absolute -left-2 -top-2 text-6xl text-yellow-300 font-serif">
-                &quot;
+            {/* Area Konten Teks */}
+            <div className="w-full md:w-3/5">
+              <div className="inline-block mb-6">
+                <h2 className="text-yellow-500 font-mono text-xs uppercase tracking-[0.4em] mb-2">
+                  Direct Message
+                </h2>
+                <div className="h-[2px] w-full bg-yellow-500/30" />
               </div>
-              <p className="text-lg md:text-xl italic text-white leading-relaxed pl-6 mb-6">
-                Saya sudah bertahun-tahun melihat teman, keluarga, dan
-                orang-orang dekat kecewa saat servis mobil. Harga nggak jelas,
-                pengerjaan asal-asalan, dan nggak ada jaminan. Itu yang bikin
-                saya memutuskan untuk terjun langsung dan membangun RAJA OTO.
-                Saya ingin ada bengkel yang jujur, lengkap, modern, dan bisa
-                diandalkan semua orang.
-              </p>
-            </blockquote>
 
-            <div className="border-l-4 border-[#fff10a] pl-4 py-2 bg-yellow-500/5">
-              <p className="text-white leading-relaxed">
-                Zack Lee bukan hanya wajah RAJA OTO. Ia adalah komisaris,
-                co-owner, dan penggerak utama dalam membangun budaya kerja
-                profesional, ramah, dan berstandar tinggi.
-              </p>
-            </div>
+              <h3 className="text-5xl md:text-7xl font-black text-white uppercase mb-10 leading-[0.9] tracking-tighter">
+                ZACK <br />
+                <span className="text-zinc-600 italic">LEE</span>
+              </h3>
 
-            {/* Badge/Label */}
-            <div className="mt-6 flex flex-wrap gap-3">
-              <span className="px-4 py-2 bg-yellow-500/40 text-yellow-400 rounded-full text-sm font-medium border border-yellow-500/30">
-                Visioner
-              </span>
-              <span className="px-4 py-2 bg-blue-500/40 text-blue-300 rounded-full text-sm font-medium border border-blue-500/30">
-                Profesional
-              </span>
-              <span className="px-4 py-2 bg-green-500/40 text-green-300 rounded-full text-sm font-medium border border-green-500/30">
-                Terpercaya
-              </span>
+              {/* Quote dengan Gaya Premium */}
+              <div className="relative mb-10">
+                <span className="absolute -left-6 -top-4 text-6xl text-yellow-500/20 font-serif">
+                  "
+                </span>
+                <p className="text-xl md:text-2xl font-light italic text-zinc-100 leading-relaxed pl-4">
+                  Saya bosan melihat orang kecewa saat servis mobil. Harga tidak
+                  jelas, pengerjaan asal-asalan. Di{" "}
+                  <span className="text-yellow-500 font-bold not-italic">
+                    RAJA OTO
+                  </span>
+                  , kami membangun standar kejujuran baru.
+                </p>
+              </div>
+
+              {/* Deskripsi Tambahan */}
+              <div className="p-6 rounded-xl bg-white/[0.03] border border-white/5 border-l-4 border-l-yellow-500">
+                <p className="text-zinc-400 text-base leading-relaxed font-light">
+                  Zack Lee sebagai Komisaris & Co-Owner memastikan setiap unit
+                  RAJA OTO memiliki standar kerja profesional, ramah, dan
+                  berteknologi tinggi bagi seluruh pelanggan di Indonesia.
+                </p>
+              </div>
+
+              {/* Nama & Jabatan Mobile Style */}
+              <div className="mt-8 flex items-center gap-4 md:hidden">
+                <div className="w-10 h-[2px] bg-yellow-500" />
+                <p className="text-white font-bold uppercase text-sm tracking-widest">
+                  Komisaris & Co-Owner
+                </p>
+              </div>
             </div>
           </div>
         </div>
