@@ -3,7 +3,7 @@ export const faqData = [
     id: 1,
     question: 'Apa itu Raja Oto?',
     answer:
-      '<b>Trans Jaya Makmur Auto Care</b> adalah bengkel mobil dengan spesialisasi yang berfokus pada perawatan kaki-kaki. Di <b>Raja Oto</b>, Anda dapat melakukan inspeksi, servis, dan bahkan rekondisi beberapa komponen kaki-kaki mobil.<br/><br/>Selain perawatan kaki-kaki, <b>Raja Oto</b> juga menawarkan layanan tune up, AC, engine, overhaul, detailing & coating, anti rust / anti karat, vaporizer steamer, serta perawatan mobil lainnya.',
+      '<b>Raja Oto</b> lahir dari satu visi besar: menghadirkan bengkel modern yang benar-benar bisa dipercaya. Di <b>Raja Oto</b>, Anda dapat melakukan inspeksi, servis, dan bahkan rekondisi beberapa komponen kaki-kaki mobil.<br/><br/>Selain perawatan kaki-kaki, <b>Raja Oto</b> juga menawarkan layanan tune up, AC, engine, overhaul, detailing & coating, anti rust / anti karat, vaporizer steamer, serta perawatan mobil lainnya.',
   },
   {
     id: 2,
@@ -21,7 +21,18 @@ export const faqData = [
     id: 4,
     question: 'Layanan di Raja Oto',
     answer:
-      'Kami menyediakan berbagai layanan seperti:<br/>- Servis ringan dan berat<br/>- Tune up<br/>- Ganti oli dan filter<br/>- Perbaikan sistem rem<br/>- Servis AC mobil<br/>- Spooring & balancing<br/>- Rekondisi kaki-kaki<br/>- Anti karat<br/>- Detailing & nano ceramic coating<br/>- Car wash<br/>- Custom suspension<br/>- Transmisi<br/>- Service truck<br/>- Overhaul Engine',
+      'Kami menyediakan berbagai layanan paket seperti:<br/>' +
+      '- Paket AC<br/>' +
+      '- Paket Detailing<br/>' +
+      '- Paket Detailing Velg<br/>' +
+      '- Paket Diesel<br/>' +
+      '- Paket Racksteer<br/>' +
+      '- Paket Steering<br/>' +
+      '- Paket Fuel System<br/>' +
+      '- Paket Kaki-kaki Rebuild<br/>' +
+      '- Paket Kaki-kaki + Oli<br/>' +
+      '- Paket Nano Ceramic Coating<br/>' +
+      '- Paket Shockbreaker',
   },
   {
     id: 5,
@@ -38,6 +49,11 @@ export const faqData = [
     id: 7,
     question: 'Di mana lokasi Raja Oto?',
     answer:
-      '<b>Raja Oto</b> tersedia lebih dari 25 outlet nasional di seluruh Indonesia.<br/><br/><b>OUTLET Raja Oto:</b><br/>• HARAPAN INDAH, BEKASI<br/>• JAKARTA BARAT<br/>• JAKARTA TIMUR<br/>• BOGOR<br/>• TANGERANG SELATAN<br/>• CIMAHI<br/>• BANDUNG<br/>• PALEMBANG<br/>• SURABAYA<br/>• MALANG<br/>• BALI<br/>• MEDAN<br/>• MAKASSAR<br/>• YOGYAKARTA<br/>• BALIKPAPAN<br/>• SEMARANG<br/>• LAMPUNG<br/>• PEKANBARU<br/>• BANJARMASIN<br/>• TJM EXPRESS BEKASI<br/>• MEDAN 2<br/>• PONTIANAK (COMING SOON)<br/>• BATAM (COMING SOON)<br/>• SAMARINDA (COMING SOON)<br/>• KARAWANG (COMING SOON)',
+      '<b>Raja Oto</b> saat ini hanya memiliki satu outlet resmi di:<br/><br/>' +
+      '<b>Surabaya</b><br/>' +
+      'Jl. Dr. Ir. H. Soekarno, Gn. Anyar<br/>' +
+      'Kec. Gn. Anyar, Surabaya<br/>' +
+      'Jawa Timur 60294<br/><br/>' +
+      'Outlet <b>Bekasi</b> akan segera dibuka.',
   },
 ];

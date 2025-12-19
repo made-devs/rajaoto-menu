@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function ZackLeeSection() {
   return (
@@ -43,7 +43,7 @@ export default function ZackLeeSection() {
 
               <h3 className="text-5xl md:text-7xl font-black text-white uppercase mb-10 leading-[0.9] tracking-tighter">
                 ZACK <br />
-                <span className="text-zinc-600 italic">LEE</span>
+                <span className="text-yellow-400 italic">LEE</span>
               </h3>
 
               {/* Quote dengan Gaya Premium */}
@@ -53,7 +53,7 @@ export default function ZackLeeSection() {
                 </span>
                 <p className="text-xl md:text-2xl font-light italic text-zinc-100 leading-relaxed pl-4">
                   Saya bosan melihat orang kecewa saat servis mobil. Harga tidak
-                  jelas, pengerjaan asal-asalan. Di{" "}
+                  jelas, pengerjaan asal-asalan. Di{' '}
                   <span className="text-yellow-500 font-bold not-italic">
                     RAJA OTO
                   </span>

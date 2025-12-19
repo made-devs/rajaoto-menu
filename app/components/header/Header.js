@@ -1,17 +1,17 @@
 // app/components/Header.jsx
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
-import { Menu, ArrowLeft } from "lucide-react";
-import MenuPanel from "./MenuPanel";
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
+import { Menu, ArrowLeft } from 'lucide-react';
+import MenuPanel from './MenuPanel';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  const isHomePage = pathname === "/";
+  const isHomePage = pathname === '/';
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
@@ -42,7 +42,7 @@ export const Header = () => {
               height={192}
               priority
               sizes="(max-width: 768px) 70vw, (max-width: 1200px) 40vw, 320px"
-              className="h-auto w-auto max-w-[320px] max-h-[192px]"
+              className="h-auto w-auto max-w-[320px] max-h-[150px]"
             />
           </div>
 
