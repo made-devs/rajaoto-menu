@@ -2,437 +2,411 @@
 
 'use client';
 
+import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
-import { useCallback, useRef, useState, useEffect } from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
+import { promoData } from '../data/promo';
 
 export const Hero = () => {
-  // Main carousel
-  const autoplay = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }));
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      loop: true,
-      align: 'start',
-      slidesToScroll: 1,
-      containScroll: 'trimSnaps',
-      dragFree: false,
-    },
-    [autoplay.current]
-  );
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const mainScrollRef = useRef(null);
+  const supportScrollRef = useRef(null);
+  const [modalImage, setModalImage] = useState(null);
+  const [activeMainIndex, setActiveMainIndex] = useState(0);
+  const [activeSupportIndex, setActiveSupportIndex] = useState(0);
 
-  // Support carousel
-  const autoplaySupport = useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: false })
-  );
-  const [emblaSupportRef, emblaSupportApi] = useEmblaCarousel(
-    {
-      loop: true,
-      align: 'start',
-      slidesToScroll: 1,
-      containScroll: 'trimSnaps',
-      dragFree: false,
-    },
-    [autoplaySupport.current]
-  );
-  const [selectedSupportIndex, setSelectedSupportIndex] = useState(0);
-
-  const slides = [
-    { id: 1, image: '/promo/promo1.webp', title: 'Promo 1' },
-    { id: 2, image: '/promo/promo2.webp', title: 'Promo 2' },
-    { id: 3, image: '/promo/promo3.webp', title: 'Promo 3' },
-    { id: 4, image: '/promo/promo4.webp', title: 'Promo 4' },
-    { id: 5, image: '/promo/promo5.webp', title: 'Promo 5' },
-  ];
-
-  // Generate support slides (1-25)
-  const supportSlides = Array.from({ length: 25 }, (_, i) => ({
+  const supportPromos = Array.from({ length: 25 }, (_, i) => ({
     id: i + 1,
     image: `/promo/promo-support${i + 1}.webp`,
-    title: `Promo Support ${i + 1}`,
+    title: `Promo Gratis #${i + 1}`,
   }));
 
-  const handleMouseEnter = () => autoplay.current.stop();
-  const handleMouseLeave = () => autoplay.current.play();
-
-  const handleSupportMouseEnter = () => autoplaySupport.current.stop();
-  const handleSupportMouseLeave = () => autoplaySupport.current.play();
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
-    emblaApi.on('select', onSelect);
-    onSelect();
-    return () => emblaApi.off('select', onSelect);
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaSupportApi) return;
-    const onSelect = () =>
-      setSelectedSupportIndex(emblaSupportApi.selectedScrollSnap());
-    emblaSupportApi.on('select', onSelect);
-    onSelect();
-    return () => emblaSupportApi.off('select', onSelect);
-  }, [emblaSupportApi]);
-
-  const scrollTo = useCallback(
-    (idx) => {
-      if (emblaApi) emblaApi.scrollTo(idx);
-      autoplay.current.stop();
-    },
-    [emblaApi]
-  );
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
-  const scrollSupportPrev = useCallback(() => {
-    if (emblaSupportApi) emblaSupportApi.scrollPrev();
-  }, [emblaSupportApi]);
-
-  const scrollSupportNext = useCallback(() => {
-    if (emblaSupportApi) emblaSupportApi.scrollNext();
-  }, [emblaSupportApi]);
-
-  const handleImageClick = (slide) => {
-    setSelectedImage(slide);
-    autoplay.current.stop();
+  const scroll = (ref, direction) => {
+    if (!ref.current) return;
+    const scrollAmount = ref === mainScrollRef ? 450 : 220;
+    ref.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    });
   };
 
-  const closePopup = () => {
-    setSelectedImage(null);
-    autoplay.current.play();
+  const openModal = (imageSrc, title) => {
+    setModalImage({ src: imageSrc, title });
+    document.body.style.overflow = 'hidden';
   };
+
+  const closeModal = () => {
+    setModalImage(null);
+    document.body.style.overflow = 'unset';
+  };
+
+  useEffect(() => {
+    const handleMainScroll = () => {
+      if (!mainScrollRef.current) return;
+      const index = Math.round(mainScrollRef.current.scrollLeft / 450);
+      setActiveMainIndex(index);
+    };
+
+    const handleSupportScroll = () => {
+      if (!supportScrollRef.current) return;
+      const index = Math.round(supportScrollRef.current.scrollLeft / 220);
+      setActiveSupportIndex(index);
+    };
+
+    const mainRef = mainScrollRef.current;
+    const supportRef = supportScrollRef.current;
+
+    mainRef?.addEventListener('scroll', handleMainScroll);
+    supportRef?.addEventListener('scroll', handleSupportScroll);
+
+    return () => {
+      mainRef?.removeEventListener('scroll', handleMainScroll);
+      supportRef?.removeEventListener('scroll', handleSupportScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') closeModal();
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, []);
 
   return (
     <>
-      <section className="w-full">
-        <div className="relative w-full h-auto">
-          <Image
-            src="/bg-text-hero.webp"
-            alt="Hero Background"
-            width={1920}
-            height={400}
-            className="w-full h-auto mt-[7rem] md:mt-[10rem]"
-            priority={true}
-          />
-
-          <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-black text-md md:text-[32px] font-extrabold z-10 px-4 md:px-6 whitespace-nowrap">
-            RAJANYA OTOMOTIF MASA KINI
-          </h1>
+      <section className="relative z-10 mt-5 py-20 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#FFD700]/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#FFD700]/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
-        {/* Main Slide Section - 3 Cards Carousel */}
-        <div
-          className="relative w-full py-8"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          {/* Title */}
-          <h2 className="text-center text-white text-xl md:text-2xl font-bold mb-6">
-            <span className="text-[#fff10a]">5</span> Promo Special
-          </h2>
-
-          {/* Navigation Buttons */}
-          <button
-            onClick={scrollPrev}
-            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#fff10a] hover:text-black transition-all duration-300"
-            aria-label="Previous slide"
-          >
-            <svg
-              className="w-5 h-5 md:w-6 md:h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
-
-          <button
-            onClick={scrollNext}
-            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#fff10a] hover:text-black transition-all duration-300"
-            aria-label="Next slide"
-          >
-            <svg
-              className="w-5 h-5 md:w-6 md:h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
-
-          {/* Embla Carousel */}
-          <div className="overflow-hidden px-12 md:px-20" ref={emblaRef}>
-            <div className="flex gap-3 md:gap-4">
-              {slides.map((slide) => (
-                <div
-                  key={slide.id}
-                  className="flex-none w-[calc((100%-1.5rem)/3)] md:w-[calc((100%-2rem)/3)] cursor-pointer group"
-                  onClick={() => handleImageClick(slide)}
-                >
-                  <div className="relative aspect-[4/5] rounded-lg md:rounded-xl overflow-hidden border-2 border-white/10 group-hover:border-[#fff10a]/50 transition-all duration-300 shadow-lg">
-                    <Image
-                      src={slide.image}
-                      alt={slide.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="absolute top-2 right-2 md:top-4 md:right-4 w-7 h-7 md:w-10 md:h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <svg
-                        className="w-4 h-4 md:w-5 md:h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
+        <div className="container mx-auto px-4 relative">
+          <div className="mb-20">
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center gap-4">
+                <div className="w-1 h-8 bg-gradient-to-b from-[#FFD700] to-[#FFA500] rounded-full"></div>
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white">
+                    5 Promo <span className="text-yellow-300">Akhir Tahun</span>
+                  </h3>
+                  <p className="text-neutral-200 text-sm mt-1">
+                    Promo utama dengan nilai fantastis
+                  </p>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Indicator Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {slides.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => scrollTo(idx)}
-                className={`h-2 w-2 md:h-3 md:w-3 rounded-full transition-all duration-300 ${
-                  idx === selectedIndex
-                    ? 'bg-[#fff10a] w-6 md:w-8'
-                    : 'bg-white/50 hover:bg-white/80'
-                }`}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Support Carousel - Smaller Size */}
-        <div
-          className="relative w-full py-4 md:py-6"
-          onMouseEnter={handleSupportMouseEnter}
-          onMouseLeave={handleSupportMouseLeave}
-        >
-          {/* Title */}
-          <h2 className="text-center text-white text-lg md:text-xl font-bold mb-4">
-            <span className="text-[#fff10a]">25</span> Promo Gratis Senilai 8
-            Juta Rupiah!
-          </h2>
-
-          {/* Navigation Buttons */}
-          <button
-            onClick={scrollSupportPrev}
-            className="absolute left-1 md:left-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#fff10a] hover:text-black transition-all duration-300"
-            aria-label="Previous support slide"
-          >
-            <svg
-              className="w-4 h-4 md:w-5 md:h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
-
-          <button
-            onClick={scrollSupportNext}
-            className="absolute right-1 md:right-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#fff10a] hover:text-black transition-all duration-300"
-            aria-label="Next support slide"
-          >
-            <svg
-              className="w-4 h-4 md:w-5 md:h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
-
-          {/* Embla Support Carousel */}
-          <div className="overflow-hidden px-10 md:px-16" ref={emblaSupportRef}>
-            <div className="flex gap-2 md:gap-3">
-              {supportSlides.map((slide) => (
-                <div
-                  key={slide.id}
-                  className="flex-none w-[calc((100%-1rem)/4)] md:w-[calc((100%-1.5rem)/5)] cursor-pointer group"
-                  onClick={() => handleImageClick(slide)}
-                >
-                  <div className="relative aspect-[4/5] rounded-md md:rounded-lg overflow-hidden border border-white/10 group-hover:border-[#fff10a]/50 transition-all duration-300 shadow-md">
-                    <Image
-                      src={slide.image}
-                      alt={slide.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="25vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="absolute top-1 right-1 md:top-2 md:right-2 w-5 h-5 md:w-7 md:h-7 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <svg
-                        className="w-3 h-3 md:w-4 md:h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Support Indicator - Simpler dots */}
-          <div className="flex justify-center gap-1 mt-4">
-            {Array.from(
-              { length: Math.ceil(supportSlides.length / 5) },
-              (_, idx) => (
+              </div>
+              <div className="hidden md:flex gap-3">
                 <button
-                  key={idx}
-                  onClick={() => emblaSupportApi?.scrollTo(idx * 5)}
-                  className={`h-1.5 w-1.5 md:h-2 md:w-2 rounded-full transition-all duration-300 ${
-                    Math.floor(selectedSupportIndex / 5) === idx
-                      ? 'bg-[#fff10a] w-4 md:w-6'
-                      : 'bg-white/50 hover:bg-white/80'
+                  onClick={() => scroll(mainScrollRef, 'left')}
+                  className="w-12 h-12 bg-neutral-800/80 hover:bg-[#FFD700] text-white hover:text-black rounded-xl flex items-center justify-center transition-all duration-300"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M15 18l-6-6 6-6" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => scroll(mainScrollRef, 'right')}
+                  className="w-12 h-12 bg-neutral-800/80 hover:bg-[#FFD700] text-white hover:text-black rounded-xl flex items-center justify-center transition-all duration-300"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div
+              ref={mainScrollRef}
+              className="flex overflow-x-auto gap-6 pb-6 snap-x snap-mandatory scroll-smooth cursor-grab active:cursor-grabbing hide-scrollbar"
+            >
+              {promoData.map((promo, index) => (
+                <div
+                  key={promo.id}
+                  className="min-w-[320px] max-w-[320px] md:min-w-[420px] md:max-w-[420px] snap-center flex-shrink-0 group"
+                >
+                  <div className="bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 rounded-3xl overflow-hidden transition-all duration-500 hover:border-[#FFD700]/50 hover:shadow-[0_20px_60px_-15px_rgba(255,215,0,0.15)] hover:-translate-y-2">
+                    <div
+                      className="relative w-full overflow-hidden cursor-pointer"
+                      style={{ aspectRatio: '4/5' }}
+                      onClick={() => openModal(promo.image, promo.title)}
+                    >
+                      <Image
+                        src={promo.image}
+                        alt={promo.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-neutral-900/90 to-transparent"></div>
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                        <div className="bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-2xl transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="none"
+                            stroke="black"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            <line x1="11" y1="8" x2="11" y2="14"></line>
+                            <line x1="8" y1="11" x2="14" y2="11"></line>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-6">
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="px-3 py-1.5 bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-black text-xs font-black rounded-lg uppercase tracking-wide shadow-lg">
+                          {promo.badge}
+                        </span>
+                        <span className="px-3 py-1.5 bg-neutral-800 text-neutral-300 text-xs font-medium rounded-lg">
+                          {promo.category}
+                        </span>
+                      </div>
+                      <h4 className="text-white text-xl md:text-2xl font-bold mb-3 group-hover:text-[#FFD700] transition-colors duration-300 leading-tight">
+                        {promo.title}
+                      </h4>
+                      <p className="text-neutral-400 text-sm leading-relaxed mb-5 line-clamp-2">
+                        {promo.description}
+                      </p>
+                      <button
+                        onClick={() => openModal(promo.image, promo.title)}
+                        className="w-full py-3.5 bg-neutral-800 hover:bg-[#FFD700] text-white hover:text-black font-bold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 border border-neutral-700 hover:border-[#FFD700]"
+                      >
+                        <span>Lihat Detail</span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="18"
+                          height="18"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="transform group-hover:translate-x-1 transition-transform"
+                        >
+                          <path d="M5 12h14"></path>
+                          <path d="M12 5l7 7-7 7"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex justify-center gap-2 mt-6">
+              {promoData.map((_, index) => (
+                <button
+                  key={index}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === activeMainIndex
+                      ? 'w-8 bg-[#FFD700]'
+                      : 'w-2 bg-neutral-700 hover:bg-neutral-600'
                   }`}
-                  aria-label={`Go to support slide group ${idx + 1}`}
+                  onClick={() =>
+                    mainScrollRef.current?.scrollTo({
+                      left: index * 450,
+                      behavior: 'smooth',
+                    })
+                  }
                 />
-              )
-            )}
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center gap-4">
+                <div className="w-1 h-8 bg-gradient-to-b from-[#FFD700] to-[#FFA500] rounded-full"></div>
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white">
+                    25 Promo <span className="text-yellow-300">Gratis</span>
+                  </h3>
+                  <p className="text-neutral-200 text-sm mt-1">
+                    Bonus tambahan untuk setiap transaksi
+                  </p>
+                </div>
+              </div>
+              <div className="hidden md:flex gap-3">
+                <button
+                  onClick={() => scroll(supportScrollRef, 'left')}
+                  className="w-10 h-10 bg-neutral-800/80 hover:bg-[#FFD700] text-white hover:text-black rounded-lg flex items-center justify-center transition-all duration-300"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M15 18l-6-6 6-6" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => scroll(supportScrollRef, 'right')}
+                  className="w-10 h-10 bg-neutral-800/80 hover:bg-[#FFD700] text-white hover:text-black rounded-lg flex items-center justify-center transition-all duration-300"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div
+              ref={supportScrollRef}
+              className="flex overflow-x-auto gap-4 pb-6 snap-x snap-mandatory scroll-smooth cursor-grab active:cursor-grabbing hide-scrollbar"
+            >
+              {supportPromos.map((promo, index) => (
+                <div
+                  key={promo.id}
+                  className="min-w-[180px] max-w-[180px] md:min-w-[200px] md:max-w-[200px] snap-center flex-shrink-0 group"
+                >
+                  <div
+                    className="bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 rounded-2xl overflow-hidden transition-all duration-500 hover:border-[#FFD700]/50 hover:shadow-[0_10px_40px_-10px_rgba(255,215,0,0.15)] hover:-translate-y-1 cursor-pointer"
+                    onClick={() => openModal(promo.image, promo.title)}
+                  >
+                    <div
+                      className="relative w-full overflow-hidden"
+                      style={{ aspectRatio: '4/5' }}
+                    >
+                      <Image
+                        src={promo.image}
+                        alt={promo.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/20">
+                        <div className="bg-white/90 backdrop-blur-sm p-2 rounded-xl transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="none"
+                            stroke="black"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            <line x1="11" y1="8" x2="11" y2="14"></line>
+                            <line x1="8" y1="11" x2="14" y2="11"></line>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-3 flex items-center justify-between">
+                      <span className="text-xs font-bold text-[#FFD700] bg-[#FFD700]/10 px-2 py-1 rounded-md">
+                        #{promo.id}
+                      </span>
+                      <span className="text-xs font-semibold text-neutral-400 group-hover:text-white transition-colors">
+                        GRATIS
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 max-w-md mx-auto">
+              <div className="h-1 bg-neutral-800 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-[#FFD700] to-[#FFA500] rounded-full transition-all duration-300"
+                  style={{
+                    width: `${
+                      ((activeSupportIndex + 1) / supportPromos.length) * 100
+                    }%`,
+                  }}
+                ></div>
+              </div>
+              <p className="text-center text-neutral-500 text-xs mt-2">
+                {activeSupportIndex + 1} dari {supportPromos.length} promo
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Popup Lightbox */}
-      {selectedImage && (
+      {modalImage && (
         <div
-          className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[100] flex items-start justify-center p-4"
-          onClick={closePopup}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-md"
+          onClick={closeModal}
         >
           <div
-            className="relative max-w-lg w-full mt-8"
+            className="relative max-w-5xl max-h-[90vh] w-full"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              onClick={closePopup}
-              className="absolute -top-12 right-0 text-white hover:text-[#fff10a] transition-colors z-10"
-              aria-label="Close popup"
+              onClick={closeModal}
+              className="absolute -top-14 right-0 w-12 h-12 bg-neutral-800 hover:bg-[#FFD700] text-white hover:text-black rounded-xl flex items-center justify-center transition-all duration-300"
             >
               <svg
-                className="w-8 h-8"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
                 fill="none"
                 stroke="currentColor"
-                viewBox="0 0 24 24"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
             </button>
-
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+            <div
+              className="relative w-full rounded-3xl overflow-hidden bg-neutral-900 shadow-2xl"
+              style={{ aspectRatio: '4/5', maxHeight: '80vh' }}
+            >
               <Image
-                src={selectedImage.image}
-                alt={selectedImage.title}
+                src={modalImage.src}
+                alt={modalImage.title}
                 fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 512px"
+                className="object-contain"
                 priority
               />
             </div>
-
-            <div className="mt-4 text-center">
-              <h3 className="text-white font-bold text-xl">
-                {selectedImage.title}
+            <div className="text-center mt-6">
+              <h3 className="text-white text-2xl font-bold">
+                {modalImage.title}
               </h3>
-            </div>
-
-            <div className="flex justify-center gap-4 mt-6">
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  // Combine both slide arrays for navigation
-                  const allSlides = [...slides, ...supportSlides];
-                  const currentIndex = allSlides.findIndex(
-                    (s) => s.image === selectedImage.image
-                  );
-                  const prevIndex =
-                    currentIndex === 0
-                      ? allSlides.length - 1
-                      : currentIndex - 1;
-                  setSelectedImage(allSlides[prevIndex]);
-                }}
-                className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-[#fff10a] hover:text-black transition-all duration-300"
-              >
-                Sebelumnya
-              </button>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  const allSlides = [...slides, ...supportSlides];
-                  const currentIndex = allSlides.findIndex(
-                    (s) => s.image === selectedImage.image
-                  );
-                  const nextIndex =
-                    currentIndex === allSlides.length - 1
-                      ? 0
-                      : currentIndex + 1;
-                  setSelectedImage(allSlides[nextIndex]);
-                }}
-                className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-[#fff10a] hover:text-black transition-all duration-300"
-              >
-                Selanjutnya
-              </button>
+              <p className="text-neutral-500 text-sm mt-2">
+                Klik di luar gambar atau tekan ESC untuk menutup
+              </p>
             </div>
           </div>
         </div>

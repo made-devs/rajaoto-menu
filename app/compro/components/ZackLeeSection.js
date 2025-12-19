@@ -8,10 +8,10 @@ export default function ZackLeeSection() {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* 2. STRATEGI GLASSMORPHISM: Kontainer utama dengan efek blur tebal */}
-        <div className="p-8 md:p-16 rounded-[3rem] border border-white/10 bg-zinc-950/80 backdrop-blur-3xl shadow-2xl">
-          <div className="flex flex-col md:flex-row gap-12 lg:gap-20 items-center">
+        <div className="p-8  rounded-[3rem] border border-white/10 bg-zinc-950/80 backdrop-blur-3xl shadow-[0_10px_15px_rgba(255,215,0,0.85)]">
+          <div className="flex flex-col gap-12 lg:gap-20 items-center">
             {/* Foto Area dengan Industrial Frame */}
-            <div className="w-full md:w-2/5 relative group">
+            <div className="w-full relative group">
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-2 border-white/5 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
                 <Image
                   src="/about1.webp"
@@ -20,12 +20,10 @@ export default function ZackLeeSection() {
                   className="object-cover transition-all duration-700"
                   sizes="(max-width: 768px) 100vw, 40vw"
                 />
-                {/* Overlay Hitam Tipis di Foto */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
               </div>
 
               {/* Badge "The Visionary" yang melayang */}
-              <div className="absolute -bottom-4 -right-4 bg-yellow-500 py-4 px-6 shadow-2xl hidden md:block -rotate-2">
+              <div className="absolute -bottom-4 -right-4 bg-yellow-500 py-4 px-6 shadow-2xl hidden -rotate-2">
                 <p className="text-black font-black text-xl uppercase leading-none italic tracking-tighter">
                   The Visionary
                 </p>
@@ -33,7 +31,7 @@ export default function ZackLeeSection() {
             </div>
 
             {/* Area Konten Teks */}
-            <div className="w-full md:w-3/5">
+            <div className="w-full">
               <div className="inline-block mb-6">
                 <h2 className="text-yellow-500 font-mono text-xs uppercase tracking-[0.4em] mb-2">
                   Direct Message
@@ -41,7 +39,7 @@ export default function ZackLeeSection() {
                 <div className="h-[2px] w-full bg-yellow-500/30" />
               </div>
 
-              <h3 className="text-5xl md:text-7xl font-black text-white uppercase mb-10 leading-[0.9] tracking-tighter">
+              <h3 className="text-5xl font-black text-white uppercase mb-10 leading-[0.9] tracking-tighter">
                 ZACK <br />
                 <span className="text-yellow-400 italic">LEE</span>
               </h3>
@@ -51,7 +49,7 @@ export default function ZackLeeSection() {
                 <span className="absolute -left-6 -top-4 text-6xl text-yellow-500/20 font-serif">
                   &quot;
                 </span>
-                <p className="text-xl md:text-2xl font-light italic text-zinc-100 leading-relaxed pl-4">
+                <p className="text-xl font-light italic text-zinc-100 leading-relaxed pl-4">
                   Saya bosan melihat orang kecewa saat servis mobil. Harga tidak
                   jelas, pengerjaan asal-asalan. Di{' '}
                   <span className="text-yellow-500 font-bold not-italic">
@@ -71,7 +69,7 @@ export default function ZackLeeSection() {
               </div>
 
               {/* Nama & Jabatan Mobile Style */}
-              <div className="mt-8 flex items-center gap-4 md:hidden">
+              <div className="mt-8 flex items-center gap-4">
                 <div className="w-10 h-[2px] bg-yellow-500" />
                 <p className="text-white font-bold uppercase text-sm tracking-widest">
                   Komisaris & Co-Owner

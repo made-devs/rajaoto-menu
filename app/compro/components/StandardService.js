@@ -1,11 +1,11 @@
 export default function StandardService() {
   const machines = [
-    "Engine Tune Up Machine",
-    "Carbon & Intake Machine",
-    "3R AC Machine",
-    "Injector Needle Valve Machine",
-    "Rematching Disc Brake",
-    "Diagnosa Electrical",
+    'Engine Tune Up Machine',
+    'Carbon & Intake Machine',
+    '3R AC Machine',
+    'Injector Needle Valve Machine',
+    'Rematching Disc Brake',
+    'Diagnosa Electrical',
   ];
 
   return (
@@ -15,23 +15,23 @@ export default function StandardService() {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* 2. STRATEGI GLASSMORPHISM: Kontainer utama yang transparan tapi buram */}
-        <div className="p-8 md:p-16 rounded-[3rem] border border-white/10 bg-zinc-950/80 backdrop-blur-3xl shadow-2xl">
+        <div className="p-8  border border-white/10 bg-zinc-950/80 backdrop-blur-3xl shadow-[0_5px_10px_rgba(255,215,0,0.85)]">
           {/* Header Section */}
           <div className="mb-16">
             <h2
               className="
-                text-2xl sm:text-3xl md:text-5xl
+                text-2xl 
                 font-black text-white uppercase tracking-tighter
                 leading-[1.05]
-                flex flex-col sm:flex-row
-                items-start sm:items-center
-                gap-3 sm:gap-4
+                flex flex-col 
+                items-start 
+                gap-3 
                 max-w-full
               "
             >
               <span className="w-12 h-2 bg-yellow-500 rounded-full shrink-0" />
               <span className="min-w-0 break-words">
-                Professional{" "}
+                Professional{' '}
                 <span className="text-yellow-500 italic">
                   Machine Standards
                 </span>
@@ -45,7 +45,7 @@ export default function StandardService() {
           </div>
 
           {/* Grid Mesin dengan Efek Card yang Tajam */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1  gap-3">
             {machines.map((name, idx) => (
               <div
                 key={idx}
@@ -65,19 +65,19 @@ export default function StandardService() {
           </div>
 
           {/* Footer Quote dengan Glass Effect Tambahan */}
-          <div className="mt-12 p-8 rounded-2xl bg-black/40 border border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="mt-12 p-8 rounded-2xl bg-black/40 border border-white/5 flex flex-col  justify-between items-center gap-8">
             <div className="flex gap-4 items-start">
               <span className="text-4xl text-yellow-500 font-serif leading-none">
                 &quot;
               </span>
-              <p className="text-zinc-300 max-w-xl text-sm md:text-base italic font-light leading-relaxed">
+              <p className="text-zinc-300 max-w-xl text-sm italic font-light leading-relaxed">
                 Kami tidak menggunakan sistem perkiraan. Semua diagnosa
                 dilakukan oleh mesin canggih untuk akurasi 100% dan keamanan
                 kendaraan Anda.
               </p>
             </div>
 
-            <div className="text-center md:text-right border-t md:border-t-0 md:border-l border-white/10 pt-6 md:pt-0 md:pl-8">
+            <div className="text-center border-t  border-white/10 pt-6 ">
               <span className="block text-2xl font-black text-white tracking-tighter leading-none mb-1">
                 RAJA OTO
               </span>

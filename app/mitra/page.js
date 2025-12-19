@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { Hero } from '../components/Hero';
 
 const MitraPage = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -252,6 +253,7 @@ const MitraPage = () => {
 
   return (
     <main className="flex flex-col w-full min-h-screen">
+      <Hero />
       {/* Main Investment Section */}
       <section className="py-16 md:py-24 relative overflow-hidden">
         {/* Background Effects */}
@@ -431,13 +433,13 @@ const MitraPage = () => {
               href="https://wa.me/6285119881371?text=Halo%20Raja%20Oto%2C%20saya%20ingin%20bertanya%20tentang%20kemitraan."
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#FFF10A]/50 text-white hover:text-[#FFF10A] px-6 md:px-8 py-3 md:py-4 rounded-full font-bold transition-all duration-300"
+              className="group inline-flex items-center gap-3 bg-[#FFF10A] text-black px-6 md:px-8 py-3 md:py-4 rounded-full font-black tracking-wide shadow-[0_0_25px_rgba(255,241,10,0.5)] hover:shadow-[0_0_35px_rgba(255,241,10,0.7)] hover:-translate-y-0.5 transition-all duration-300"
             >
-              <IconComponent name="sparkles" className="w-5 h-5" />
+              <IconComponent name="sparkles" className="w-5 h-5 text-black" />
               Konsultasi Gratis
               <IconComponent
                 name="arrow"
-                className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                className="w-5 h-5 text-black group-hover:translate-x-1 transition-transform"
               />
             </a>
           </div>

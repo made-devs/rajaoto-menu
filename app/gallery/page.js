@@ -1,14 +1,15 @@
-"use client";
+'use client';
 
-import { useState, useMemo } from "react";
-import GalleryHero from "./components/GalleryHero";
-import GalleryFilter from "./components/GalleryFilter";
-import GalleryGrid from "./components/GalleryGrid";
-import GalleryShowcase from "./components/GalleryShowcase";
-import { getImagesByCategory } from "@/app/data/gallery";
+import { useState, useMemo } from 'react';
+import GalleryHero from './components/GalleryHero';
+import GalleryFilter from './components/GalleryFilter';
+import GalleryGrid from './components/GalleryGrid';
+import GalleryShowcase from './components/GalleryShowcase';
+import { getImagesByCategory } from '@/app/data/gallery';
+import { Hero } from '../components/Hero';
 
 export default function GalleryPage() {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState('all');
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showcaseImages, setShowcaseImages] = useState([]);
@@ -36,7 +37,7 @@ export default function GalleryPage() {
 
   const handleNavigate = (direction) => {
     let newIndex;
-    if (direction === "prev") {
+    if (direction === 'prev') {
       newIndex =
         currentIndex === 0 ? showcaseImages.length - 1 : currentIndex - 1;
     } else {
@@ -49,6 +50,7 @@ export default function GalleryPage() {
 
   return (
     <main className="flex flex-col w-full min-h-screen text-gray-800">
+      <Hero />
       {/* Section Title */}
       <div className="text-center py-8 px-4">
         <h2 className="text-white text-2xl md:text-3xl font-bold">
@@ -70,10 +72,10 @@ export default function GalleryPage() {
       {/* Image Count */}
       <div className="text-center pb-8">
         <p className="text-white text-sm">
-          Menampilkan{" "}
+          Menampilkan{' '}
           <span className="text-[#fff10a] font-bold">
             {filteredImages.length}
-          </span>{" "}
+          </span>{' '}
           foto
         </p>
       </div>

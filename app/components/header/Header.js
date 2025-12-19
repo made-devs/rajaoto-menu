@@ -42,7 +42,7 @@ export const Header = () => {
               height={192}
               priority
               sizes="(max-width: 768px) 70vw, (max-width: 1200px) 40vw, 320px"
-              className="h-auto w-auto max-w-[320px] max-h-[150px]"
+              className="h-auto w-auto max-w-[320px] max-h-[120px]"
             />
           </div>
 

@@ -5,19 +5,19 @@ export default function AboutHero() {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* 2. STRATEGI GLASSMORPHISM: Container utama dengan blur tinggi */}
-        <div className="p-8 md:p-16 rounded-[3rem] border border-white/10 bg-zinc-950/70 backdrop-blur-2xl shadow-2xl">
+        <div className="p-8  rounded-[3rem] border border-white/10 bg-zinc-950/70 backdrop-blur-2xl shadow-[0_10px_15px_rgba(255,215,0,0.85)]">
           <div className="inline-block px-4 py-1 mb-8 border border-yellow-500/30 bg-yellow-500/10 text-yellow-500 text-xs font-bold uppercase tracking-widest rounded-full">
             The Future of Workshop
           </div>
 
-          <h1 className="text-5xl md:text-8xl font-black mb-12 leading-[0.9] tracking-tighter uppercase text-white">
+          <h1 className="text-5xl font-black mb-12 leading-[0.9] tracking-tighter uppercase text-white">
             TENTANG <span className="text-yellow-500 italic">KAMI</span>
           </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-12">
+          <div className="grid grid-cols-1 gap-12 items-start mt-12">
             {/* Quote Section dengan Border Kuning Solid */}
             <div className="border-l-4 border-yellow-500 pl-8">
-              <p className="text-xl md:text-3xl font-light leading-tight italic text-zinc-100">
+              <p className="text-xl  font-light leading-tight italic text-zinc-100">
                 &quot;Raja Oto lahir dari satu visi besar: menghadirkan bengkel
                 modern yang benar-benar bisa dipercaya.&quot;
               </p>

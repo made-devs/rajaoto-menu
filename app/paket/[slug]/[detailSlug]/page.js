@@ -7,6 +7,7 @@ import { CheckCircle, Wrench, ShieldCheck, X } from 'lucide-react';
 import gsap from 'gsap';
 import { packagesData } from '../../../data/packages';
 import { getImagesByCategory } from '../../../data/gallery';
+import { Hero } from '../../../components/Hero';
 
 export default function PackageDetailPage() {
   const params = useParams();
@@ -110,6 +111,7 @@ export default function PackageDetailPage() {
 
   return (
     <>
+      <Hero />
       <main
         ref={containerRef}
         className="min-h-screen bg-zinc-950 text-zinc-100 font-sans pb-28 relative overflow-hidden max-w-md mx-auto shadow-2xl shadow-zinc-900"

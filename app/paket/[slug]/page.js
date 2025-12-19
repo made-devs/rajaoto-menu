@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import { packagesData } from '../../data/packages';
 import { PackageCard } from '../../components/PackageCard';
 import { GalleryCarousel } from '../../components/GalleryCarousel';
+import { Hero } from '../../components/Hero';
 
 export default function PaketDetailPage() {
   const params = useParams();
@@ -21,6 +22,7 @@ export default function PaketDetailPage() {
 
   return (
     <>
+      <Hero />
       <section className="py-4">
         {/* Cek jika ada sub-kategori */}
         {pageData.subCategories && Array.isArray(pageData.subCategories) ? (
