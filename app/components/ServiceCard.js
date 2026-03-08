@@ -22,7 +22,7 @@ export const ServiceCard = ({ title, slug, packages = [] }) => {
   };
 
   return (
-    <div className="space-y-3 h-[290px] md:h-[430px] flex flex-col justify-between">
+    <div className="space-y-3 flex flex-col justify-between">
       {/* Title dengan background image seperti Hero, tapi text di kiri */}
       <div className="relative w-full h-auto">
         <Image
