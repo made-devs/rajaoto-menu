@@ -16,13 +16,13 @@ export default function HomePage() {
           </span>
         </div>
         <h2 className="text-4xl md:text-6xl font-black text-white mb-6">
-          Ledakan Promo{' '}
+          Mega Promo <br/>
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] to-[#FFA500]">
-            Akhir Tahun
+            Bulan Ramadhan
           </span>
         </h2>
         <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto">
-          Nikmati berbagai promo eksklusif dalam rangka merayakan akhir tahun.
+          Nikmati berbagai promo eksklusif dalam rangka merayakan bulan Ramadhan.
           Penawaran terbatas!
         </p>
       </div>

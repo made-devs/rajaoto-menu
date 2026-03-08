@@ -1,10 +1,10 @@
 // app/components/ServiceCard.jsx
-"use client";
+'use client';
 
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link"; // <-- tambahkan import Link
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link'; // <-- tambahkan import Link
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const ServiceCard = ({ title, slug, packages = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -34,10 +34,10 @@ export const ServiceCard = ({ title, slug, packages = [] }) => {
         />
 
         <h4
-          className="absolute top-1/2 left-0 transform -translate-y-1/2 ml-3 text-white text-sm md:text-[28px] font-extrabold z-10 px-2 md:px-6 whitespace-nowrap text-left"
+          className="absolute top-1/2 left-0 transform -translate-y-1/2 ml-3 text-white text-sm md:text-[28px] font-extrabold z-10 px-2 md:px-6 truncate max-w-[90%] text-left"
           style={{
             textShadow:
-              "-1px 0 0 #000, 0px 5px 4px #000, 0px -1px 0px #000, 1px 0px 0px #000",
+              '-1px 0 0 #000, 0px 5px 4px #000, 0px -1px 0px #000, 1px 0px 0px #000',
           }}
         >
           {title}
@@ -68,13 +68,15 @@ export const ServiceCard = ({ title, slug, packages = [] }) => {
                   />
                 </div>
                 {/* Container untuk nama package, price dan button - fixed height */}
-                <div className="flex flex-col items-center h-[5.5rem] mt-2">
+                <div className="flex flex-col items-center flex-1 mt-2 mb-2 justify-between">
                   {/* Nama package di bawah gambar - tinggi konsisten */}
-                  <div className="flex items-center justify-center md:px-5 font-bold text-white text-center text-[11px] md:text-sm max-h-[2.2rem]">
-                    {pkg.name}
+                  <div className="flex items-center justify-center w-full px-1 md:px-3 font-bold text-white text-center text-[10px] md:text-sm h-[2.5rem]">
+                    <span className="line-clamp-2 leading-tight w-full">
+                      {pkg.name}
+                    </span>
                   </div>
                   {/* Price */}
-                  <div className="text-yellow-400 mt-2 font-bold text-sm">
+                  <div className="text-yellow-400 mt-1 font-bold text-xs md:text-sm">
                     {pkg.price}
                   </div>
                   {/* Button DETAIL - kapsul dengan border yellow dan gradasi */}

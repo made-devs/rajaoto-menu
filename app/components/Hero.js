@@ -86,7 +86,8 @@ export const Hero = () => {
                 <div className="w-1 h-8 bg-gradient-to-b from-[#FFD700] to-[#FFA500] rounded-full"></div>
                 <div>
                   <h3 className="text-2xl md:text-3xl font-bold text-white">
-                    5 Promo <span className="text-yellow-300">Akhir Tahun</span>
+                    5 Mega Promo{' '}
+                    <span className="text-yellow-300">Ramadhan</span>
                   </h3>
                   <p className="text-neutral-200 text-sm mt-1">
                     Promo utama dengan nilai fantastis

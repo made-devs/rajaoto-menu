@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
           <div id="smooth-content">
             {/* Lebar container diubah agar responsif di tablet dan desktop */}
             <div
-              className="mx-auto max-w-[480px] text-white shadow-2xl min-h-screen flex flex-col"
+              className="mx-auto max-w-[480px] md:max-w-[768px] lg:max-w-[1024px] text-white shadow-2xl min-h-screen flex flex-col"
               style={{
                 backgroundImage:
                   "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/bg.webp')",
