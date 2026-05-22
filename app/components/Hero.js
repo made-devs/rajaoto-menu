@@ -7,6 +7,20 @@ import Image from 'next/image';
 import { promoData } from '../data/promo';
 
 export const Hero = () => {
+  // Get month name from validUntil of the first promo (e.g. '2026-05-31')
+  const getPromoMonth = () => {
+    if (!promoData || promoData.length === 0) return 'Mei';
+    const dateStr = promoData[0].validUntil; // '2026-05-31'
+    const monthIndex = parseInt(dateStr.split('-')[1], 10) - 1;
+    const months = [
+      'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+      'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+    ];
+    return months[monthIndex] || 'Mei';
+  };
+
+  const monthName = getPromoMonth();
+
   const mainScrollRef = useRef(null);
   const supportScrollRef = useRef(null);
   const [modalImage, setModalImage] = useState(null);
@@ -87,7 +101,7 @@ export const Hero = () => {
                 <div>
                   <h3 className="text-2xl md:text-3xl font-bold text-white">
                     5 Mega Promo{' '}
-                    <span className="text-yellow-300">Ramadhan</span>
+                    <span className="text-yellow-300">{monthName}</span>
                   </h3>
                   <p className="text-neutral-200 text-sm mt-1">
                     Promo utama dengan nilai fantastis
@@ -220,11 +234,10 @@ export const Hero = () => {
               {promoData.map((_, index) => (
                 <button
                   key={index}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    index === activeMainIndex
+                  className={`h-2 rounded-full transition-all duration-300 ${index === activeMainIndex
                       ? 'w-8 bg-[#FFD700]'
                       : 'w-2 bg-neutral-700 hover:bg-neutral-600'
-                  }`}
+                    }`}
                   onClick={() =>
                     mainScrollRef.current?.scrollTo({
                       left: index * 450,
@@ -242,7 +255,7 @@ export const Hero = () => {
                 <div className="w-1 h-8 bg-gradient-to-b from-[#FFD700] to-[#FFA500] rounded-full"></div>
                 <div>
                   <h3 className="text-2xl md:text-3xl font-bold text-white">
-                    25 Promo <span className="text-yellow-300">Gratis</span>
+                    15 Promo <span className="text-yellow-300">Gratis</span>
                   </h3>
                   <p className="text-neutral-200 text-sm mt-1">
                     Bonus tambahan untuk setiap transaksi
@@ -348,9 +361,8 @@ export const Hero = () => {
                 <div
                   className="h-full bg-gradient-to-r from-[#FFD700] to-[#FFA500] rounded-full transition-all duration-300"
                   style={{
-                    width: `${
-                      ((activeSupportIndex + 1) / supportPromos.length) * 100
-                    }%`,
+                    width: `${((activeSupportIndex + 1) / supportPromos.length) * 100
+                      }%`,
                   }}
                 ></div>
               </div>

@@ -2,7 +2,23 @@
 
 import { Hero } from './components/Hero';
 import { ServiceSection } from './components/ServiceSection';
+import { promoData } from './data/promo';
+
 export default function HomePage() {
+  // Get month name from validUntil of the first promo (e.g. '2026-05-31')
+  const getPromoMonth = () => {
+    if (!promoData || promoData.length === 0) return 'Mei';
+    const dateStr = promoData[0].validUntil; // '2026-05-31'
+    const monthIndex = parseInt(dateStr.split('-')[1], 10) - 1;
+    const months = [
+      'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+      'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+    ];
+    return months[monthIndex] || 'Mei';
+  };
+
+  const monthName = getPromoMonth();
+
   return (
     <>
       <div className="text-center mt-30 px-10">
@@ -16,13 +32,13 @@ export default function HomePage() {
           </span>
         </div>
         <h2 className="text-4xl md:text-6xl font-black text-white mb-6">
-          Mega Promo <br/>
+          Flash Sale <br/>
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] to-[#FFA500]">
-            Bulan Ramadhan
+            Bulan {monthName}
           </span>
         </h2>
         <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto">
-          Nikmati berbagai promo eksklusif dalam rangka merayakan bulan Ramadhan.
+          Nikmati berbagai promo eksklusif Flash Sale Bulan {monthName}.
           Penawaran terbatas!
         </p>
       </div>
@@ -31,3 +47,4 @@ export default function HomePage() {
     </>
   );
 }
+

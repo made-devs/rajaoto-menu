@@ -1,52 +1,43 @@
 export const promoData = [
   {
     id: 1,
-    title: 'Beli 1 Gratis 1 Paket Apapun',
+    title: 'Flash Sale Kaki Kaki',
     description:
-      'Promosi spesial! Beli 1 paket layanan, gratis 1 paket lainnya. Kesempatan terbatas hanya untuk Anda.',
+      'Layanan khusus perawatan dan perbaikan kaki-kaki mobil untuk kenyamanan berkendara yang maksimal dengan kestabilan prima.',
     image: '/promo/promo1.webp',
-    badge: 'BUY 1 GET 1',
-    category: 'Akhir Tahun',
-    validUntil: '2025-12-31',
+    validUntil: '2026-05-31',
   },
   {
     id: 2,
-    title: 'Garansi 1 Tahun',
+    title: 'Free Fuel Saver Kit Gift Pack',
     description:
-      'Semua layanan dilengkapi dengan garansi 1 tahun. Kepuasan dan kepercayaan Anda adalah prioritas kami.',
+      'Dapatkan paket hemat Fuel Saver Kit secara gratis untuk membantu mengoptimalkan efisiensi konsumsi bahan bakar kendaraan Anda.',
     image: '/promo/promo2.webp',
-    badge: 'GARANSI',
-    category: 'Akhir Tahun',
-    validUntil: '2025-12-31',
+    validUntil: '2026-05-31',
   },
   {
     id: 3,
-    title: 'Gratis Spooring 3D & Balancing 4 Roda',
+    title: 'Free Nano Ceramic Coating',
     description:
-      'Nikmati layanan spooring 3D dan balancing 4 roda secara gratis. Pastikan kenyamanan dan keamanan berkendara Anda.',
+      'Perlindungan cat premium dengan teknologi Nano Ceramic Coating gratis untuk membuat mobil Anda berkilau dan tahan goresan.',
     image: '/promo/promo3.webp',
-    badge: 'GRATIS',
-    category: 'Akhir Tahun',
-    validUntil: '2025-12-31',
+    validUntil: '2026-05-31',
   },
   {
     id: 4,
-    title: 'Gratis Nano Car Wash Premium Shield',
+    title: 'Free Spooring 3D',
     description:
-      'Dapatkan layanan cuci mobil premium dengan teknologi nano shield. Mobil Anda akan lebih bersih dan terlindungi.',
+      'Layanan Spooring 3D presisi tinggi secara gratis untuk memastikan keselarasan roda dan kestabilan kemudi mobil Anda.',
     image: '/promo/promo4.webp',
-    badge: 'GRATIS',
-    category: 'Akhir Tahun',
-    validUntil: '2025-12-31',
+    validUntil: '2026-05-31',
   },
   {
     id: 5,
-    title: 'Gratis Exhaust Emission / Uji Emisi',
+    title: 'Free 3R Cleaning AC Dengan Mesin',
     description:
-      'Dapatkan uji emisi gratis untuk setiap layanan servis. Pastikan kendaraan Anda ramah lingkungan dan lolos uji emisi.',
+      'Nikmati udara kabin yang sejuk dan higienis dengan pembersihan AC teknologi 3R menggunakan mesin otomatis modern.',
     image: '/promo/promo5.webp',
-    badge: 'GRATIS',
-    category: 'Akhir Tahun',
-    validUntil: '2025-12-31',
+    validUntil: '2026-05-31',
   },
 ];
+
